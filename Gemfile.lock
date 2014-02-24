@@ -1,5 +1,6 @@
-PATH
-  remote: /home/lxsameer/src/Yellowen/Faalis
+GIT
+  remote: git://github.com/Yellowen/Faalis.git
+  revision: a45e2e50652e0418dfa205dcaacae8379d23306c
   specs:
     faalis (0.11.1)
       cancan
@@ -18,8 +19,9 @@ PATH
       sass-rails (>= 4.0.0)
       zurb-foundation (~> 4.0.0)
 
-PATH
-  remote: /home/lxsameer/src/Yellowen/site_framework
+GIT
+  remote: git://github.com/Yellowen/site_framework.git
+  revision: bb6ccabfedb4ed255ba2de430c0f6658ef1f24f7
   specs:
     site_framework (0.1.1)
       rails (~> 4.0.2)
