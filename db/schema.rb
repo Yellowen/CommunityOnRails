@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219135242) do
+ActiveRecord::Schema.define(version: 20140224205857) do
+
+  create_table "application_models", force: true do |t|
+    t.string   "model"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "conversations", force: true do |t|
     t.string   "subject",    default: ""
@@ -95,5 +101,21 @@ ActiveRecord::Schema.define(version: 20140219135242) do
   end
 
   add_index "receipts", ["notification_id"], name: "index_receipts_on_notification_id"
+
+  create_table "settings", force: true do |t|
+    t.integer  "user_id"
+    t.string   "theme",      default: "default"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["user_id"], name: "index_settings_on_user_id"
+
+  create_table "site_framework_domains", force: true do |t|
+    t.string   "name"
+    t.string   "alias"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

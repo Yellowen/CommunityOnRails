@@ -11,4 +11,11 @@ Faalis::Engine.setup do |config|
 
   # If you want to use red base layout in rtl mode
   # config.layout_direction = :rtl
+  config.dashboard_modules = {
+    :setting => {
+      :icon => "fa fa-cog",
+      :sidemenu => true,
+    },
+  }
+
 end

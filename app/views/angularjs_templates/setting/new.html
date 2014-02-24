@@ -1,0 +1,32 @@
+
+
+
+<form novalidate name="form">
+ <div class="newform">
+  <fieldset class="form">
+
+    <legend ng-if="!editing"><span translate>New Settings</span></legend>
+    <legend ng-if="editing"><span translate>Edit Settings</span></legend>
+
+    
+    <div class="row">
+      <div class="small-4 columns ">
+        <label><span translate>Theme</span> :</label>
+        <relation-field select2-options="select2options"  title-field="'name'" model="theme" field-data="theme_data">
+        </relation-field>
+        
+      </div>
+    
+  </fieldset>
+</form>
+
+
+
+  <div class="row">
+      <div class="small-6 columns">
+        <button class="btn small green" ng-click="save(false)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save</span></button>
+        <button class="btn small blue" ng-click="save(true)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save & Add Another</span></button>
+        <button class="btn small red" ng-click="cancel()"><i class="fa fa-times"></i> <span translate>Cancel</span></button>
+      </div>
+  </div>
+</div>
