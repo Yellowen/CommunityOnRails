@@ -1,1 +1,0 @@
-json.msg _("Items removed successfully.")
