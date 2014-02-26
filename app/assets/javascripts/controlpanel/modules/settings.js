@@ -24,6 +24,6 @@ Settings.config(["$routeProvider", function($routeProvider){
 
 Settings.controller("SettingsMenuController", ["gettext", function(gettext){
     this.menu_items = [
-        {title: gettext("Themes"), url: "/settings/themes", permission: {action: "read", model: "Theme"}}
+        {title: gettext("Themes"), url: "/settings/themes", permission: {action: "read", model: "Permissions::Theme"}}
     ];
 }]);
