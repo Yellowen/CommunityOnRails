@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
   # executed on each request with will load the user settings data.
   include Settings::Loader
 
+  private
+
+  # This method will call by `Setting::Loader` automaticall
+  # after loading user settings
+  def after_settings_loaded
+    # append_view_path
+  end
+
 end

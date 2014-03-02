@@ -5,7 +5,8 @@ Faalis::Engine.setup do |config|
 
   # Add your models which want to manage their permissions
   config.models_with_permission = ["Permissions::Settings",
-                                   "Permissions::Theme"]
+                                   "Permissions::Theme",
+                                   "Faalis::Permissions::Auth"]
 
   # Url prefix for dashboard section. default is '/dashboard'
   # config.dashboard_namespace = :dashboard
@@ -15,6 +16,12 @@ Faalis::Engine.setup do |config|
   # If you want to use red base layout in rtl mode
   # config.layout_direction = :rtl
   config.dashboard_modules = {
+    :auth => {
+      :icon => "fa fa-group",
+      :title => _("Authentication"),
+      :sidemenu => true,
+      :model => "Faalis::Permissions::Auth"
+    },
     :settings => {
       :icon => "fa fa-cog",
       :sidemenu => true,

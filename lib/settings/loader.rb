@@ -2,7 +2,7 @@ module Settings
   module Loader
 
     def self.included(base)
-      base.before_filter :load_or_create_user_settings
+      base.before_action :load_or_create_user_settings, :after_settings_loaded
     end
 
     def load_or_create_user_settings
@@ -14,13 +14,13 @@ module Settings
         # which we will set when we read users settings for
         # the first time, then we did not to check it again
         unless current_user.respond_to? :settings
+          logger.info "Fetching or creating user settings"
           settings = Setting.find_or_create_by(:user_id => current_user.id)
 
           current_user.define_singleton_method(:settings) { settings }
         else
-          puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+          logger.info "User settings already attached"
         end
-
       end
     end
   end
