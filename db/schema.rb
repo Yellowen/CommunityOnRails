@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224205857) do
+ActiveRecord::Schema.define(version: 20140303145020) do
 
   create_table "application_models", force: true do |t|
     t.string   "model"
@@ -68,6 +68,13 @@ ActiveRecord::Schema.define(version: 20140224205857) do
   add_index "faalis_users", ["reset_password_token"], name: "index_faalis_users_on_reset_password_token", unique: true
   add_index "faalis_users", ["unlock_token"], name: "index_faalis_users_on_unlock_token", unique: true
 
+  create_table "namespaces", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "notifications", force: true do |t|
     t.string   "type"
     t.text     "body"
@@ -111,11 +118,27 @@ ActiveRecord::Schema.define(version: 20140224205857) do
 
   add_index "settings", ["user_id"], name: "index_settings_on_user_id"
 
-  create_table "site_framework_domains", force: true do |t|
+  create_table "site_categories", force: true do |t|
     t.string   "name"
-    t.string   "alias"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "site_framework_domains", force: true do |t|
+    t.string   "name"
+    t.integer  "site_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "namespace_id"
+  end
+
+  create_table "site_framework_sites", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "site_category_id"
   end
 
 end

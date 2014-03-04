@@ -16,4 +16,14 @@ namespace :build do
     system "#{JS_SCAFFOLD} setting theme:in:default,clean --no-bulk"
   end
 
+  desc "Create Sites scaffold"
+  task :site => :environment do
+    menus = "--menu Namespaces:namespaces,Sites:sites"
+    system "#{JS_SCAFFOLD} name title:string category:belongs_to:site_categories description:text #{menus} --no-filter --no-bulk"
+  end
+
+  desc "Create namespace scaffold"
+  task :namespace => :environment do
+    system "#{JS_SCAFFOLD} namespace name:string"
+  end
 end
