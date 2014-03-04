@@ -1,6 +1,6 @@
 namespace :build do
 
-  JS_SCAFFOLD = "rails generate faalis:js_scaffold"
+  JS_SCAFFOLD = "rails g faalis:js_scaffold"
 
   desc "Build a fresh database"
   task :fresh => :environment do
@@ -18,8 +18,10 @@ namespace :build do
 
   desc "Create Sites scaffold"
   task :site => :environment do
-    menus = "--menu Namespaces:namespaces,Sites:sites"
-    system "#{JS_SCAFFOLD} name title:string category:belongs_to:site_categories description:text #{menus} --no-filter --no-bulk"
+    menus = "--menu Namespaces:namespaces{Namespace},Sites:sites{SiteFramework::Site}"
+    deps = "--deps namespace"
+    fields = "title:string category:belongs_to:site_categories description:text"
+    system "#{JS_SCAFFOLD} site #{fields} #{menus} #{deps} --no-filter --no-bulk"
   end
 
   desc "Create namespace scaffold"

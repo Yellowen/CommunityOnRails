@@ -22,6 +22,12 @@ Faalis::Engine.setup do |config|
       :sidemenu => true,
       :model => "Faalis::Permissions::Auth"
     },
+    :sites => {
+      :icon => "fa fa-group",
+      :title => _("Websites"),
+      :sidemenu => true,
+      :resource => :site,
+    },
     :settings => {
       :icon => "fa fa-cog",
       :sidemenu => true,
