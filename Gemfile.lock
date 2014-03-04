@@ -21,7 +21,7 @@ PATH
 PATH
   remote: /home/lxsameer/src/Yellowen/site_framework
   specs:
-    site_framework (0.2.0)
+    site_framework (0.2.1)
       rails (~> 4.0.2)
 
 GEM

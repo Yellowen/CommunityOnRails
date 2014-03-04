@@ -1,6 +1,7 @@
 namespace :build do
 
-  JS_SCAFFOLD = "rails g faalis:js_scaffold"
+  #JS_SCAFFOLD = "rails g faalis:js_scaffold"
+  JS_SCAFFOLD = "rails g faalis:js:list_view"
 
   desc "Build a fresh database"
   task :fresh => :environment do
