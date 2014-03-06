@@ -1,30 +1,30 @@
 
-// Sites Module
-var Sites = angular.module("Site", ["ListView", "Filter", "Anim", "Fields", "Namespace", ]);
+// SiteCategories Module
+var SiteCategories = angular.module("SiteCategory", ["ListView", "Filter", "Anim", "Fields",]);
 
-// Sites configuration section ---------------------------
-Sites.config(["$routeProvider", function($routeProvider){
+// SiteCategories configuration section ---------------------------
+SiteCategories.config(["$routeProvider", function($routeProvider){
 
     // Add any route you need here
     $routeProvider.
-        when("/sites", {
-            templateUrl: template("site/index"),
-            controller: "SiteController"
+        when("/site_categories", {
+            templateUrl: template("site_category/index"),
+            controller: "SiteCategoryController"
         }).
-        when("/sites/new",{
-            templateUrl: template("site/new"),
-            controller: "AddSiteController"
+        when("/site_categories/new",{
+            templateUrl: template("site_category/new"),
+            controller: "AddSiteCategoryController"
         }).
-        when("/sites/:id/edit",{
-            templateUrl: template("site/new"),
-            controller: "AddSiteController"
+        when("/site_categories/:id/edit",{
+            templateUrl: template("site_category/new"),
+            controller: "AddSiteCategoryController"
         });
 
 }]);
 
-// Site index controller -------------------------------------------------------
+// SiteCategory index controller -------------------------------------------------------
 // This controller is responsible for list page (index)
-Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams",
+SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams",
                                       function($scope, gettext, API, catch_error, $location, $routeParams){
 
     
@@ -33,7 +33,7 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
 
     // details_template is the address of template which should load for
     // each item details section
-    $scope.details_template = template("site/details");
+    $scope.details_template = template("site_category/details");
 
     // Buttons for top of the list-view
     $scope.buttons = [
@@ -43,9 +43,9 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
             classes: "btn tiny green",
             permission: {
               name: "create",
-              model: "SiteFramework::Site"
+              model: "SiteCategory"
             },
-            route: "#/sites/new"
+            route: "#/site_categories/new"
 
          },
         {
@@ -54,10 +54,10 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
             classes: "btn tiny red",
             permission: {
               name: "create",
-              model: "SiteFramework::Site"
+              model: "SiteCategory"
             },
             action: function(){
-                var selected = _.find($scope.sites, function(x){
+                var selected = _.find($scope.site_categories, function(x){
                     return x.is_selected === true;
                 });
 
@@ -65,7 +65,7 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
                     error_message(gettext("You should only select one item to copy."));
                 }
                 else {
-                    $location.path("/sites/-" + selected.id + "/edit");
+                    $location.path("/site_categories/-" + selected.id + "/edit");
                 }
             }
         }
@@ -81,10 +81,10 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
             query.push(item.id);
         });
 
-        API.all("sites").customDELETE(query.join(","))
+        API.all("site_categories").customDELETE(query.join(","))
             .then(function(data) {
 
-                $scope.sites = _.filter($scope.sites, function(x){
+                $scope.site_categories = _.filter($scope.site_categories, function(x){
                     return !(query.indexOf(x.id) != -1);
                 });
                 success_message(data.msg);
@@ -95,16 +95,16 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
     };
     
     
-    API.all("sites").getList()
+    API.all("site_categories").getList()
         .then(function(data){
-            $scope.sites = data;
+            $scope.site_categories = data;
         }, function(data){
             catch_error(data);
         });
      
 }]);
 
-Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$routeParams", "gettext", "catch_error", function(API, $scope, $location, $routeParams, gettext, catch_error){
+SiteCategories.controller("AddSiteCategoryController", ["Restangular", "$scope", "$location", "$routeParams", "gettext", "catch_error", function(API, $scope, $location, $routeParams, gettext, catch_error){
 
     
 
@@ -114,11 +114,6 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
     var is_copy = false;
 
     
-    $scope.category_data = {
-        type: 'belongs_to',
-        to: 'site_categories',
-        name: 'category'
-    };
     
     if( "id" in $routeParams ){
         $scope.obj_id = $routeParams.id;
@@ -128,11 +123,10 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
             $scope.obj_id = $scope.obj_id * -1;
         }
 
-        var obj = API.one("sites", $scope.obj_id).get()
+        var obj = API.one("site_categories", $scope.obj_id).get()
                 .then(function(data) {
                 
-                    $scope.title = data.title;
-                    $scope.category = data.category.id;
+                    $scope.name = data.name;
                     $scope.description = data.description;
                 }, function(data){
                     catch_error(data);
@@ -152,29 +146,28 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
 
     $scope.cancel = function(){
         $(".form input").val("");
-        $location.path("/sites");
+        $location.path("/site_categories");
     };
 
     $scope.save = function(save_another){
         $("small.error").html("");
         $("small.error").removeClass("error");
 
-        var site = {site: {
-            title: $scope.title,
-            category_id: parseInt($scope.category),
+        var site_category = {site_category: {
+            name: $scope.name,
             description: $scope.description,
             __res__: 0
         }};
         if (($scope.obj_id) && (is_copy === false)) {
 
-            API.one("sites", $scope.obj_id).patch(site)
+            API.one("site_categories", $scope.obj_id).patch(site_category)
                 .then(function(){
-                    success_message(gettext("Site updated successfully."));
+                    success_message(gettext("SiteCategory updated successfully."));
                     if (save_another) {
                         $(".form input").val("");
                     }
                     else {
-                        $location.path("/sites");
+                        $location.path("/site_categories");
                     }
                 }, function(data){
                     catch_error(data);
@@ -182,13 +175,13 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
 
         }
         else {
-            API.all("sites").customPOST(site, "").then(function(){
-                success_message(gettext("Site created successfully."));
+            API.all("site_categories").customPOST(site_category, "").then(function(){
+                success_message(gettext("SiteCategory created successfully."));
                 if (save_another) {
                     $(".form input").val("");
                 }
                 else {
-                    $location.path("/sites");
+                    $location.path("/site_categories");
                 }
             }, function(data){
                 catch_error(data);
@@ -198,10 +191,3 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
     };
 }]);
 
-Sites.controller("SiteMenuController", ["gettext", function(gettext){
-    this.menu_items = [
-        {title: gettext("Namespaces"), url: "namespaces", permission: {action: "read", model: "Namespace"}},
-        {title: gettext("Sites"), url: "sites", permission: {action: "read", model: "SiteFramework::Site"}},
-        {title: gettext("Categories"), url: "site_categoriesSiteCategory"},
-        ];
-}]);

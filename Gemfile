@@ -28,8 +28,15 @@ group :development, :test do
 end
 
 group :development do
-  gem "ruby_parser"
+  gem "pry"
   gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv', github: "capistrano/rbenv"
+  gem 'capistrano-rails'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "meta_request"
+  gem "ruby_parser"
 end
 
 # Address of directory containing faalis.gemspec

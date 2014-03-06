@@ -1,7 +1,8 @@
 class API::V1::SitesController < APIController
   before_filter :build_resource, :only => :create
-  load_and_authorize_resource :except => [:destory]
-
+  
+  load_and_authorize_resource :except => [:destory], :class => "SiteFramework::Site"
+  
   # GET /api/v1/sites
   def index
     respond_with(@sites)
@@ -42,7 +43,8 @@ class API::V1::SitesController < APIController
   end
 
   def build_resource
-    @site = ::Site.new(resource_params)
+    @site = SiteFramework::Site.new(resource_params)
+    
   end
 
   def resource_params

@@ -12,12 +12,12 @@ Feature: Sites API
     Then I should get "401" status code
     When format is json and I send patch to "/api/v1/sites/1" with:
     """
-    {"title":"EJNuHpmrlMDaxghswNbqbDbFgzvGyWqJJfKYVcPtshioXnZzMe","category_id":1,"description":"JJnRLQtdLiicxcXDrjQvLieIThhPQeuqwXNxTWMOpWgHtlXXTg"}
+    {"title":"VOmMuhHXOqRYcuouRammaLJaExHCRfCBSHPHoSwvdgLMKZHQFv","category_id":1,"description":"IiliYWPyNLgpyWOvZCNFhtMAYxhXXaKkvzurFGfWzyRgLyoJgK"}
     """
     Then I should get "401" status code
     When format is json and I send post to "/api/v1/sites" with:
     """
-    {"title":"VawRZNSteNtbijGQXrmBelOdmaZjhMTtlIMjuiRzABIHoZaDCB","category_id":1,"description":"QwiqujdKPuLFKOXtZuTkHOwSBnIrftwBFZCUtLfmAogEPhNffl"}
+    {"title":"UGlNyYUmbPdwIvKEOOkWztUxeretiacfJOpGIhERqasAjJsqIr","category_id":1,"description":"hUrCsrTiUqQUwQcZUwyDmrNDTMcXtSQVEfiDvFVGugJLPkebpc"}
     """
     Then I should get "401" status code
     When format is json and I send delete to "/api/v1/sites/1"

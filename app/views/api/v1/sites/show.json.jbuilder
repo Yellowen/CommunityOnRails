@@ -1,8 +1,6 @@
 json.extract! @site, :id, :title, :description
 
-json.category do
-  json.id @site.category.id
-  json.name @site.category.name
-end
+
+json.partial! 'faalis/relations/belongs_to', object: @site.category, :name => :category, :fields => [:id, :name]
 
 
