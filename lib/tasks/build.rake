@@ -18,8 +18,8 @@ namespace :build do
 
   desc "Create Sites scaffold"
   task :site => :environment do
-    menus = "--menu Namespaces:namespaces{Namespace},Sites:sites{SiteFramework::Site},Categories:site_categories#{SiteCategory}"
-    deps = "--deps namespace"
+    menus = "--menu Namespaces:namespaces{Namespace},Sites:sites{SiteFramework::Site},Categories:site_categories{SiteCategory}"
+    deps = "--deps namespace,site_category"
     fields = "title:string category:belongs_to:site_categories description:text"
     system "#{JS_SCAFFOLD} site #{fields} #{menus} #{deps} --no-filter --no-bulk --model SiteFramework::Site"
   end

@@ -12,12 +12,12 @@ Feature: SiteCategories API
     Then I should get "401" status code
     When format is json and I send patch to "/api/v1/site_categories/1" with:
     """
-    {"name":"RqHMQOoSAtvJkKytJrjCCBopCskWjuFmjMbtTaUXqhDfNvwgTo","description":"dpaGhaENmvOQtqihUlCSPysqfawJnKpcBhGQrbXBwNGMUDpcqj"}
+    {"name":"waPrKuCxEgUzOqbKMeOxstYQIHWjikArugcNkDNDOwpAAxnkSY","description":"mWVaBKwULNPUJdlDnYIXNElMlFoSvQMiGGEzbqRIWxGAAQWrMN"}
     """
     Then I should get "401" status code
     When format is json and I send post to "/api/v1/site_categories" with:
     """
-    {"name":"sJMEZtTtkFfzjjYKPJhswUCNBkKDsMLJXnSuWhXryqywszMSSV","description":"YNaWdNmxCianpAURwGEvQErswxlhMsxPoBsNMMmLnZVJgDnhpa"}
+    {"name":"yeRfInvRpgzJknLUWmwcRDrlplmMsGtUlTOijWdIIKgmWlSaLG","description":"rYywAjgkILVKIdgKmKsgzlOkUBgzkIkPWMcfeXLEBOVBABpSCc"}
     """
     Then I should get "401" status code
     When format is json and I send delete to "/api/v1/site_categories/1"

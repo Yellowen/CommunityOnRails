@@ -1,6 +1,6 @@
 
 // Sites Module
-var Sites = angular.module("Site", ["ListView", "Filter", "Anim", "Fields", "Namespace", ]);
+var Sites = angular.module("Site", ["ListView", "Filter", "Anim", "Fields", "Namespace",  "SiteCategory", ]);
 
 // Sites configuration section ---------------------------
 Sites.config(["$routeProvider", function($routeProvider){
@@ -202,6 +202,6 @@ Sites.controller("SiteMenuController", ["gettext", function(gettext){
     this.menu_items = [
         {title: gettext("Namespaces"), url: "namespaces", permission: {action: "read", model: "Namespace"}},
         {title: gettext("Sites"), url: "sites", permission: {action: "read", model: "SiteFramework::Site"}},
-        {title: gettext("Categories"), url: "site_categoriesSiteCategory"},
+        {title: gettext("Categories"), url: "site_categories", permission: {action: "read", model: "SiteCategory"}},
         ];
 }]);
