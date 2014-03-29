@@ -1,0 +1,49 @@
+{
+    "name": "site",
+    "fields": [
+        {
+            "name": "title",
+            "type": "string"
+        },
+        {
+            "name": "category",
+            "type": "belongs_to",
+            "to": "site_categories"
+        },
+        {
+            "name": "namespace",
+            "type": "belongs_to",
+            "to": "namespaces"
+        },
+        {
+            "name": "description",
+            "type": "text"
+        }
+    ],
+    "model": "SiteFramework::Site",
+    "no_filter": true,
+    "deps": [
+        "namespace",
+        "site_category"
+    ],
+    "menu": [
+        {
+            "title": "Namespaces",
+            "url": "namespaces",
+            "model": "Namespace",
+            "perm_action": "read"
+        },
+        {
+            "title": "Sites",
+            "url": "sites",
+            "model": "SiteFramework::Site",
+            "perm_action": "read"
+        },
+        {
+            "title": "Categories",
+            "url": "site_categories",
+            "model": "SiteCategory",
+            "perm_action": "read"
+        }
+    ]
+}

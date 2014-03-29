@@ -1,10 +1,8 @@
-
 // Sites Module
-var Sites = angular.module("Site", ["ListView", "Filter", "Anim", "Fields", "Namespace",  "SiteCategory", ]);
+var Sites = angular.module("Site", ["ListView", "Filter", "Anim", "Fields",]);
 
 // Sites configuration section ---------------------------
 Sites.config(["$routeProvider", function($routeProvider){
-
     // Add any route you need here
     $routeProvider.
         when("/sites", {
@@ -19,17 +17,36 @@ Sites.config(["$routeProvider", function($routeProvider){
             templateUrl: template("site/new"),
             controller: "AddSiteController"
         });
-
 }]);
+
 
 // Site index controller -------------------------------------------------------
 // This controller is responsible for list page (index)
-Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams",
-                                      function($scope, gettext, API, catch_error, $location, $routeParams){
+Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams", function($scope, gettext, API, catch_error, $location, $routeParams){
 
     
     
-    
+    // Cache object for each field name possible values
+    $scope.cache = {};
+
+    // Change event handler for field_name combobox in bulk edit
+    $scope.field_name_change = function(x){
+        var current_value = $("#field_name").val();
+        $scope.current_field= _.find($scope.fields, function(x){
+            return x.name == current_value;
+        });
+        if( "to" in $scope.current_field ){
+            if (! ($scope.current_field.name in $scope.cache)) {
+                $scope.current_field.to().then(function(x){
+                    $scope.cache[$scope.current_field.name] = x;
+                });
+            }
+        }
+    };
+
+    $scope.columns = [];
+    $scope.fields = [
+    ];
 
     // details_template is the address of template which should load for
     // each item details section
@@ -48,6 +65,19 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
             route: "#/sites/new"
 
          },
+        {
+            title: gettext("Bulk Edit"),
+            icon: "fa fa-edit",
+            classes: "btn tiny yellow",
+            permission: {
+              name: "update",
+              model: "SiteFramework::Site"
+            },
+            action: function(){
+                $scope.$apply("bulk_edit = ! bulk_edit");
+            },
+
+        },
         {
             title: gettext("Duplicate"),
             icon: "fa fa-files-o",
@@ -71,6 +101,63 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
         }
 
     ];
+
+    /*
+     * On bulk save event
+     */
+    $scope.bulk_save = function(){
+
+        $scope.view_progressbar = true;
+        var value = $("#field_value").val();
+        var field = $scope.current_field.name;
+        var type = $scope.current_field.type;
+        var field_name = $scope.current_field.title;
+        if ((type == "has_many") || (type == "belongs_to")) {
+            value = parseInt(value, 10);
+        }
+        var requests_count = 0;
+
+        $scope.rfiller = 0;
+        $scope.sfiller = 0;
+        $scope.success = 0;
+        $scope.failed = 0;
+        $scope.total = _.where($scope.sites, function(x){return x.is_selected === true;}).length;
+
+        _.each($scope.sites, function(x){
+            if( x.is_selected === true ){
+                x[field] = value;
+                requests_count++;
+
+                var rwidth = (requests_count * 100) / $scope.total;
+                if (requests_count == $scope.total) { rwidth = 100; }
+                $scope.rfiller = rwidth + "%";
+
+                API.one("sites", x.id).patch(x).then(function(data){
+                    $scope.success++;
+                    var swidth = parseInt(($scope.success * 100) / $scope.total);
+                    if ($scope.sucess == $scope.total) { swidth = 100; }
+                    $scope.sfiller = swidth + "%";
+                    x[field_name.toLowerCase()] = data[field_name.toLowerCase()];
+                }, function(data){
+                    $scope.failed++;
+                    catch_error(data);
+                });
+
+            }
+        });
+
+    };
+
+    /*
+     * On bulk cancel event
+     */
+    $scope.bulk_cancel = function(){
+        $("#field_name").val(0);
+        document.getElementById("bulk_form").reset();
+        $scope.view_progressbar = false;
+        $scope.bulk_edit = false;
+    };
+    
     /*
      * On delete event handler - `items` is an array of objects to delete
      */
@@ -104,6 +191,7 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
      
 }]);
 
+
 Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$routeParams", "gettext", "catch_error", function(API, $scope, $location, $routeParams, gettext, catch_error){
 
     
@@ -119,6 +207,11 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
         to: 'site_categories',
         name: 'category'
     };
+    $scope.namespace_data = {
+        type: 'belongs_to',
+        to: 'namespaces',
+        name: 'namespace'
+    };
     
     if( "id" in $routeParams ){
         $scope.obj_id = $routeParams.id;
@@ -133,6 +226,7 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
                 
                     $scope.title = data.title;
                     $scope.category = data.category.id;
+                    $scope.namespace = data.namespace.id;
                     $scope.description = data.description;
                 }, function(data){
                     catch_error(data);
@@ -162,6 +256,7 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
         var site = {site: {
             title: $scope.title,
             category_id: parseInt($scope.category),
+            namespace_id: parseInt($scope.namespace),
             description: $scope.description,
             __res__: 0
         }};
@@ -198,6 +293,8 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
     };
 }]);
 
+
+
 Sites.controller("SiteMenuController", ["gettext", function(gettext){
     this.menu_items = [
         {title: gettext("Namespaces"), url: "namespaces", permission: {action: "read", model: "Namespace"}},
@@ -205,3 +302,4 @@ Sites.controller("SiteMenuController", ["gettext", function(gettext){
         {title: gettext("Categories"), url: "site_categories", permission: {action: "read", model: "SiteCategory"}},
         ];
 }]);
+

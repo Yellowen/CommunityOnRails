@@ -1,4 +1,5 @@
 class API::V1::SitesController < APIController
+  
   before_filter :build_resource, :only => :create
   
   load_and_authorize_resource :except => [:destory], :class => "SiteFramework::Site"
@@ -48,7 +49,7 @@ class API::V1::SitesController < APIController
   end
 
   def resource_params
-    params.require(:site).permit(:id, :title, :category_id, :description)
+    params.require(:site).permit(:id, :title, :category_id, :namespace_id, :description)
   end
 
 end

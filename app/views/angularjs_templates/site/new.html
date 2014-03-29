@@ -25,10 +25,18 @@
     </div>
     <div class="row">
       <div class="small-4 columns ">
+        <label><span translate>Namespace</span> :</label>
+        <relation-field select2-options="select2options"  title-field="'name'" model="namespace" field-data="namespace_data">
+        </relation-field>
+        
+      </div>
+    
+    
+      <div class="small-4 columns float-left small-offset-2">
         <label><span translate>Description</span> :</label>
         <text-field model="description" field-name="'description'" css-class="'rounded text_field'" ></text-field>
       </div>
-    
+    </div>
   </fieldset>
 </form>
 
