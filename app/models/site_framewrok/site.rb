@@ -4,6 +4,9 @@
 require SiteFramework::Engine.root.join('app', 'models', 'site_framework', 'site')
 
 # Re-opened class of `Faalis::User` to extend it based on our needs
+# A relation added to [SiteCategor] which allow to categorize
+# sites by their subject.
+# Each site belongs to a [Faalis::User]
 class SiteFramework::Site
   belongs_to :site_category
   has_many :users, :class_name => "Faalis::User"

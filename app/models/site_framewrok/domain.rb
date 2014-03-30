@@ -4,6 +4,8 @@
 require SiteFramework::Engine.root.join('app', 'models', 'site_framework', 'domain')
 
 # Re-opened class of `Faalis::User` to extend it based on our needs
+# We added `namespace` field to **Domain** model. So each domain
+# belongs to a [Namespace]
 class SiteFramework::Domain
   belongs_to :namespace
 
