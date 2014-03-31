@@ -8,7 +8,7 @@ class API::V1::NamespacesController < APIController
   end
 
   def create
-    
+
     if @namespace.save
       respond_with(@namespace)
     else
@@ -23,7 +23,7 @@ class API::V1::NamespacesController < APIController
   end
 
   def update
-    
+
 
     if @namespace.update(resource_params)
       respond_with(@namespace)

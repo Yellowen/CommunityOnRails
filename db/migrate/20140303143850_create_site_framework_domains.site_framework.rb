@@ -2,10 +2,12 @@
 class CreateSiteFrameworkDomains < ActiveRecord::Migration
   def change
     create_table :site_framework_domains do |t|
-      t.string :name
-      t.integer :site_id
+       t.string :name
+       t.integer :site_id
 
-      t.timestamps
-    end
+       t.timestamps
+     end
+
+    add_index :site_framework_domains, :name, :unique => true
   end
 end

@@ -133,6 +133,8 @@ ActiveRecord::Schema.define(version: 20140303145020) do
     t.integer  "namespace_id"
   end
 
+  add_index "site_framework_domains", ["name"], name: "index_site_framework_domains_on_name", unique: true
+
   create_table "site_framework_sites", force: true do |t|
     t.string   "title"
     t.string   "description"

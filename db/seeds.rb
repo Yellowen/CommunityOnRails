@@ -33,5 +33,5 @@ SiteFramework::Site.create(title: 'example site',
                            description: 'some example',
                            site_category_id: 1)
 
-SiteFramework::Domain.create(name: 'ex.localhost', site_id: 1,
+SiteFramework::Domain.create!(name: 'ex.localhost.com', site_id: 1,
                              namespace_id: 1)

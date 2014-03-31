@@ -6,7 +6,6 @@ Factorien::Application.routes.draw do
       resources :namespaces, :except => [:new]
       resources :sites, :except => [:new]
       resources :site_categories, :except => [:new]
-
     end
   end
 

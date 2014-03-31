@@ -41,9 +41,9 @@ end
 
 # Address of directory containing faalis.gemspec
 # ONLY FOR DEVELOPMENT
-params = {:github => "Yellowen/Faalis"}
-contacts_params = {:github => "Yellowen/Faalis-Contacts"}
-site_framework = {:github => "Yellowen/site_framework"}
+params = {:github => 'Yellowen/Faalis'}
+contacts_params = {:github => 'Yellowen/Faalis-Contacts'}
+site_framework = {:github => 'Yellowen/site_framework'}
 
 development_file = [File.expand_path(File.dirname(__FILE__)),
                     ".development"].join("/")

@@ -1,6 +1,5 @@
 require 'settings/loader'
 
-
 class APIController < Faalis::APIController
 
   # Including `Setting::Loader` cause a before_filter method
