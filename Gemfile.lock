@@ -9,7 +9,7 @@ GIT
 PATH
   remote: /home/lxsameer/src/Yellowen/Faalis
   specs:
-    faalis (0.24.0)
+    faalis (0.24.1)
       cancan
       compass-rails
       devise (>= 3.0.0)

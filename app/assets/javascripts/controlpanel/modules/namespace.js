@@ -1,10 +1,8 @@
-
 // Namespaces Module
 var Namespaces = angular.module("Namespace", ["ListView", "Filter", "Anim", "Fields",]);
 
 // Namespaces configuration section ---------------------------
 Namespaces.config(["$routeProvider", function($routeProvider){
-
     // Add any route you need here
     $routeProvider.
         when("/namespaces", {
@@ -19,19 +17,15 @@ Namespaces.config(["$routeProvider", function($routeProvider){
             templateUrl: template("namespace/new"),
             controller: "AddNamespaceController"
         });
-
 }]);
+
 
 // Namespace index controller -------------------------------------------------------
 // This controller is responsible for list page (index)
-Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams",
-                                      function($scope, gettext, API, catch_error, $location, $routeParams){
+Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams", function($scope, gettext, API, catch_error, $location, $routeParams){
 
     
-    $scope.filter_config = {
-        list: API.all("namespaces")
-    };
-    $scope.namespaces = [];
+    
     // Cache object for each field name possible values
     $scope.cache = {};
 
@@ -50,15 +44,8 @@ Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular"
         }
     };
 
-    $scope.columns = [
-        {field:'name', displayName: gettext('Name')},
-    ];
+    $scope.columns = [];
     $scope.fields = [
-        {
-            name: "name",
-            title: gettext("Name"),
-            type: "string"
-        },
     ];
 
     // details_template is the address of template which should load for
@@ -193,7 +180,7 @@ Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular"
             });
 
     };
-    /*
+    
     
     API.all("namespaces").getList()
         .then(function(data){
@@ -201,8 +188,9 @@ Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular"
         }, function(data){
             catch_error(data);
         });
-     */
+     
 }]);
+
 
 Namespaces.controller("AddNamespaceController", ["Restangular", "$scope", "$location", "$routeParams", "gettext", "catch_error", function(API, $scope, $location, $routeParams, gettext, catch_error){
 
@@ -245,7 +233,7 @@ Namespaces.controller("AddNamespaceController", ["Restangular", "$scope", "$loca
 
     $scope.cancel = function(){
         $(".form input").val("");
-        $location.path("#/namespaces");
+        $location.path("/namespaces");
     };
 
     $scope.save = function(save_another){
@@ -265,7 +253,7 @@ Namespaces.controller("AddNamespaceController", ["Restangular", "$scope", "$loca
                         $(".form input").val("");
                     }
                     else {
-                        $location.path("namespaces");
+                        $location.path("/namespaces");
                     }
                 }, function(data){
                     catch_error(data);
@@ -279,7 +267,7 @@ Namespaces.controller("AddNamespaceController", ["Restangular", "$scope", "$loca
                     $(".form input").val("");
                 }
                 else {
-                    $location.path("namespaces");
+                    $location.path("/namespaces");
                 }
             }, function(data){
                 catch_error(data);
@@ -288,4 +276,7 @@ Namespaces.controller("AddNamespaceController", ["Restangular", "$scope", "$loca
 
     };
 }]);
+
+
+
 

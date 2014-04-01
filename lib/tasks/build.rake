@@ -23,7 +23,7 @@ namespace :build do
 
   desc "Create namespace scaffold"
   task :namespace => :environment do
-    system "#{LIST_VIEW} namespace name:string"
+    system "#{LIST_VIEW}namespace.json"
   end
 
   desc "Create site category scaffold"
