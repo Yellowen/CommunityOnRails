@@ -6,7 +6,7 @@
             "type": "string"
         },
         {
-            "name": "category",
+            "name": "site_category",
             "type": "belongs_to",
             "to": "site_categories"
         },

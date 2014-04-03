@@ -1,5 +1,5 @@
 // Sites Module
-var Sites = angular.module("Site", ["ListView", "Filter", "Anim", "Fields",]);
+var Sites = angular.module("Site", ["ListView", "Filter", "Anim", "Fields", "Namespace",  "SiteCategory", ]);
 
 // Sites configuration section ---------------------------
 Sites.config(["$routeProvider", function($routeProvider){
@@ -202,10 +202,10 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
     var is_copy = false;
 
     
-    $scope.category_data = {
+    $scope.site_category_data = {
         type: 'belongs_to',
         to: 'site_categories',
-        name: 'category'
+        name: 'site_category'
     };
     $scope.namespace_data = {
         type: 'belongs_to',
@@ -225,7 +225,7 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
                 .then(function(data) {
                 
                     $scope.title = data.title;
-                    $scope.category = data.category.id;
+                    $scope.site_category = data.site_category.id;
                     $scope.namespace = data.namespace.id;
                     $scope.description = data.description;
                 }, function(data){
@@ -255,7 +255,7 @@ Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$r
 
         var site = {site: {
             title: $scope.title,
-            category_id: parseInt($scope.category),
+            site_category_id: parseInt($scope.site_category),
             namespace_id: parseInt($scope.namespace),
             description: $scope.description,
             __res__: 0

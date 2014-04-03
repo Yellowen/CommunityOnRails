@@ -1,16 +1,16 @@
 class API::V1::SitesController < APIController
-  
+
   before_filter :build_resource, :only => :create
-  
+
   load_and_authorize_resource :except => [:destory], :class => "SiteFramework::Site"
-  
+
   # GET /api/v1/sites
   def index
     respond_with(@sites)
   end
 
   def create
-    
+
     if @site.save
       respond_with(@site)
     else
@@ -25,7 +25,7 @@ class API::V1::SitesController < APIController
   end
 
   def update
-    
+
 
     if @site.update(resource_params)
       respond_with(@site)
@@ -38,18 +38,18 @@ class API::V1::SitesController < APIController
 
   def destroy
     ids = params[:id].split(",")
-    @sites = ::Site.where(:id => ids)
+    @sites = SiteFramework::Site.where(:id => ids)
     authorize! :destroy, @sites
     @sites.destroy_all
   end
 
   def build_resource
     @site = SiteFramework::Site.new(resource_params)
-    
+
   end
 
   def resource_params
-    params.require(:site).permit(:id, :title, :category_id, :namespace_id, :description)
+    params.require(:site).permit(:id, :title, :site_category_id, :namespace_id, :description)
   end
 
 end

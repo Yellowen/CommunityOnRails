@@ -12,12 +12,12 @@ Feature: Namespaces API
     Then I should get "401" status code
     When format is json and I send patch to "/api/v1/namespaces/1" with:
     """
-    {"name":"zoheOHaygdwdjsjJGlIlPeoqMMXmRCfeXlAtJYHjDAaLJKVnfZ"}
+    {"name":"KyymZypthKqrswjyXTqXzaQbsscTexSLwCjfIgxHtsHMDnexoP"}
     """
     Then I should get "401" status code
     When format is json and I send post to "/api/v1/namespaces" with:
     """
-    {"name":"wyOFVmQbTzdKClsidbiYGsOEnKlrljQKxURWJVpPadEJKdqmIQ"}
+    {"name":"YwsGSdNwUKijiaTMaKTTkZnDMvGJbAHTTHpoSIGMujyuLolQHL"}
     """
     Then I should get "401" status code
     When format is json and I send delete to "/api/v1/namespaces/1"

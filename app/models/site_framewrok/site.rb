@@ -7,7 +7,7 @@ require SiteFramework::Engine.root.join('app', 'models', 'site_framework', 'site
 # A relation added to [SiteCategor] which allow to categorize
 # sites by their subject.
 # Each site belongs to a [Faalis::User]
-class SiteFramework::Site
+class SiteFramework::Site < ActiveRecord::Base
   belongs_to :site_category
   has_many :users, :class_name => "Faalis::User"
 
