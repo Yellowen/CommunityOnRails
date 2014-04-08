@@ -27,11 +27,28 @@ SiteCategory.create(name: 'Sports')
 SiteCategory.create(name: 'Travel')
 SiteCategory.create(name: 'Other')
 
-Namespace.create(name: 'exnamespace', user_id: 1)
+unless Rails.env.production?
+  Namespace.create(name: 'ex', user_id: 1)
 
-SiteFramework::Site.create(title: 'example site',
-                           description: 'some example',
-                           site_category_id: 1)
+  SiteFramework::Site.create(title: 'example site',
+                             description: 'some example',
+                             site_category_id: 1)
 
-SiteFramework::Domain.create!(name: 'ex.localhost.com', site_id: 1,
-                             namespace_id: 1)
+  SiteFramework::Domain.create!(name: 'ex.localhost.com', site_id: 1,
+                                namespace_id: 1)
+
+  Faalis::User.create({:email => 'user@user.com',
+                       :group_id => 1,
+                       :password => '123123123',
+                       :password_confirmation => '123123123'})
+
+  Namespace.create(name: 'ex2', user_id: 3)
+
+  SiteFramework::Site.create(title: 'example 2 site',
+                             description: 'some 2  example',
+                             site_category_id: 3)
+
+  SiteFramework::Domain.create!(name: 'ex2.localhost.com', site_id: 2,
+                                namespace_id: 2)
+
+end
