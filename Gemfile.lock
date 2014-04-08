@@ -9,10 +9,10 @@ GIT
 PATH
   remote: /home/lxsameer/src/Yellowen/Faalis
   specs:
-    faalis (0.24.3)
+    faalis (0.24.4)
       cancan
       compass-rails
-      devise (>= 3.0.0)
+      devise (~> 3.2.0)
       fast_gettext
       font-awesome-rails
       foundation-rails
@@ -138,7 +138,7 @@ GEM
       railties (>= 3.2, < 5.0)
     foreigner (1.6.1)
       activerecord (>= 3.0.0)
-    foundation-rails (5.2.1.0)
+    foundation-rails (5.2.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     fssm (0.2.10)
