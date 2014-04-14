@@ -24,7 +24,8 @@ PATH
       modernizr-rails
       omniauth
       rails (~> 4.0.4)
-      sass-rails (>= 4.0.0)
+      sass-rails (~> 4.0.0)
+      sprockets (~> 2.11.0)
 
 PATH
   remote: /home/lxsameer/src/Yellowen/site_framework
