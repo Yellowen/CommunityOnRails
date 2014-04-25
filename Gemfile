@@ -61,3 +61,4 @@ end
 
 gem 'faalis', **params
 gem 'site_framework', **site_framework
+gem "compass-rails"

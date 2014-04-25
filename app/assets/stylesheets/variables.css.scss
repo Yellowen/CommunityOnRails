@@ -1,1 +1,25 @@
 $bg: #f9f9f9;
+
+// COLORS -----------------------
+
+// Blue
+$darker_blue: #16193B;
+$dark_blue: #35478C;
+$blue: #4E7AC7;
+$light_blue: #7FB2F0;
+$lighter_blue: #ADD5F7;
+
+
+$white: #f9f9f9;
+.color-white {
+   color: $white;
+}
+.bg-white {
+   background-color: $white;
+}
+// HEADER -----------------------
+$header_inner_bg: $light_blue;
+$header_outter_bg: $blue;
+
+$header_gradient_x: 45px;
+$header_gradient_y: 45px;

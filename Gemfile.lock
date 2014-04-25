@@ -318,6 +318,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv!
   capybara
+  compass-rails
   cucumber-rails
   database_cleaner
   email_spec
