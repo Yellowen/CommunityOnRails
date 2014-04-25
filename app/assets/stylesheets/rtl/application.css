@@ -1,1 +1,4 @@
-//= require faalis/rtl/application
+//= require variables
+//= require rtl/foundation_and_overrides
+//= require base
+//= require home
