@@ -11,7 +11,7 @@ Faalis::Engine.setup do |config|
   # Url prefix for dashboard section. default is '/dashboard'
   # config.dashboard_namespace = :dashboard
 
-  config.site_title = _("Factorien")
+  config.site_title = _("Community On Rails")
 
   # If you want to use red base layout in rtl mode
   # config.layout_direction = :rtl

@@ -10,5 +10,6 @@ Factorien::Application.routes.draw do
   end
 
   mount Faalis::Engine => "/"
+  Faalis::Routes.define_api_routes
   # root 'welcome#index'
 end

@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require faalis/dashboard/angular
+//= require faalis/angular-manifest
 //= require faalis/dashboard/application
 //= reuiqre_tree ./modules
 //= require_tree .
