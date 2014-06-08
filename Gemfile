@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '4.0.4'
 gem 'sqlite3'
-
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
@@ -51,7 +50,7 @@ if File.exists?(development_file)
   Faalis = [File.expand_path(File.dirname(__FILE__)),
               '../Faalis/'].join("/")
   puts 'Using Faalis source.'
-  params = {:path => Faalis}
+  params = {:path => Faalis, :branch => 'mongo'}
 
   contacts_params = {:path => File.expand_path('../../faalis_contacts/', __FILE__)}
   site_framework = {:path => File.expand_path('../../site_framework/', __FILE__)}
@@ -60,4 +59,4 @@ end
 
 gem 'faalis', **params
 gem 'site_framework', **site_framework
-gem "compass-rails"
+gem 'compass-rails'

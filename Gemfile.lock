@@ -1,6 +1,13 @@
 GIT
-  remote: git://github.com/Yellowen/Faalis.git
-  revision: 660d750bbe7d989fecf649c82ae89ed8e7300f85
+  remote: git://github.com/capistrano/rbenv.git
+  revision: fcc05dda3ce54a5e05031de8a749a8dcb615e6c9
+  specs:
+    capistrano-rbenv (2.0.2)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
+
+PATH
+  remote: /home/lxsameer/src/Yellowen/Faalis
   specs:
     faalis (0.26.3)
       angularjs-rails (~> 1.2.16)
@@ -18,24 +25,16 @@ GIT
       model_discovery (~> 0.2.3)
       modernizr-rails
       omniauth
+      orm_adapter
       rails (~> 4.0.4)
       sass-rails (~> 4.0.0)
       sprockets (~> 2.11.0)
 
-GIT
-  remote: git://github.com/Yellowen/site_framework.git
-  revision: 59b87e9d74236becd507826ba56e63a74154038d
+PATH
+  remote: /home/lxsameer/src/Yellowen/site_framework
   specs:
     site_framework (0.3.0)
       rails (~> 4.0.2)
-
-GIT
-  remote: git://github.com/capistrano/rbenv.git
-  revision: fcc05dda3ce54a5e05031de8a749a8dcb615e6c9
-  specs:
-    capistrano-rbenv (2.0.2)
-      capistrano (~> 3.1)
-      sshkit (~> 1.3)
 
 GEM
   remote: http://rubygems.org/
