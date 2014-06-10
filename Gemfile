@@ -1,13 +1,12 @@
 source 'http://rubygems.org'
 
 gem 'rails', '4.0.4'
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'mongoid', '~>4.0.0.rc1'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
-gem 'model_discovery'
 
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
@@ -61,3 +60,4 @@ end
 gem 'faalis', **params
 gem 'site_framework', **site_framework
 gem 'compass-rails'
+gem 'model_discovery', :path => '/home/lxsameer/src/Yellowen/model_discovery'
