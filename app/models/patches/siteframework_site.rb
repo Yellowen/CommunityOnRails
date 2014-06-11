@@ -1,7 +1,15 @@
 # Extend SiteFramework::Site class to add extra functionality
 SiteFramework::Site.class_eval do
-  belongs_to :site_category
-  has_many :users, :class_name => 'Faalis::User'
 
-  validates_associated :site_category
+  if Faalis::ORM.active_record?
+    belongs_to :site_category
+    validates_associated :site_category
+  end
+
+  if Faalis::ORM.mongoid?
+    embeds_one :site_category
+    embedded_in :namespace
+  end
+
+  has_many :users, :class_name => 'Faalis::User'
 end
