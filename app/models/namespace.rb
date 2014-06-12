@@ -6,7 +6,7 @@ class Namespace < Faalis::ORM.proper_base_class
     include Mongoid::Document
     include Mongoid::Timestamps
 
-    embeds_many :sites, class_name => 'SiteFramework::Site'
+    embeds_many :sites, :class_name => 'SiteFramework::Site'
 
     field :name, :type => String
   end

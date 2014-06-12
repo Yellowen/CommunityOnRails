@@ -3,11 +3,14 @@ SiteFramework::Site.class_eval do
 
   if Faalis::ORM.active_record?
     belongs_to :site_category
+    has_one :setting
     validates_associated :site_category
   end
 
   if Faalis::ORM.mongoid?
-    embeds_one :site_category
+    field :site_category, :type => Array
+
+    embeds_one :setting
     embedded_in :namespace
   end
 

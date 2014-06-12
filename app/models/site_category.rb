@@ -5,8 +5,6 @@ class SiteCategory < Faalis::ORM.proper_base_class
     include Mongoid::Document
     include Mongoid::Timestamps
 
-    embedded_in :site, class_name => 'SiteFramework::Site'
-
     field :name, :type => String
     field :description, :type => String
   end
