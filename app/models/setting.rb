@@ -4,10 +4,10 @@ class Setting < Faalis::ORM.proper_base_class
     include Mongoid::Document
     include Mongoid::Timestamps
 
-    embedded_in :site, :class_name => 'SiteFramework::Site'
+    embedded_in :site, class_name: 'SiteFramework::Site'
 
-    field :theme, :type => String, :default => 'default'
+    field :theme, type: String, default: 'default'
   end
 
-  belongs_to :user, :class_name => 'Faalis::User'
+  belongs_to :user, class_name: 'Faalis::User'
 end

@@ -15,8 +15,17 @@ module Settings
         # the first time, then we did not to check it again
         unless current_user.respond_to? :settings
           logger.info "Fetching or creating user settings"
-          settings = Setting.find_or_create_by(:user_id => current_user.id)
 
+          if Faalis::ORM.active_record?
+            settings = Setting.find_or_create_by(:user_id => current_user.id)
+
+          elsif Faalis::ORM.mongoid?
+            domain = Rails.application.domain
+            settings = domain.site.setting if not domain.nil?
+          end
+          settings ||= nil
+
+          puts ">>>>>>>>>>>>>>>>>> #{settings}"
           current_user.define_singleton_method(:settings) { settings }
         else
           logger.info "User settings already attached"

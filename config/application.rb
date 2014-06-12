@@ -26,6 +26,7 @@ module Factorien
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
     config.i18n.fallbacks = true
+    config.autoload_paths << Rails.root.join('lib')
 
     Mongoid.logger.level = Logger::DEBUG
     Moped.logger.level = Logger::DEBUG
@@ -42,5 +43,17 @@ module Factorien
 
     config.middleware.use 'SiteFramework::Middleware'
 
+    def fetch_domain
+      if Faalis::ORM.active_record?
+        SiteFramework::Domain.find_by(nam: Rails.application.domain_name)
+      elsif Faalis::ORM.mongoid?
+        namespace = Namespace.where('sites.domains.name' => Rails.application.domain_name)
+        if namespace.empty?
+          nil
+        else
+          namespace.first.sites.first.domains.first
+        end
+      end
+    end
   end
 end
