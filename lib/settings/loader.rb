@@ -25,7 +25,6 @@ module Settings
           end
           settings ||= nil
 
-          puts ">>>>>>>>>>>>>>>>>> #{settings}"
           current_user.define_singleton_method(:settings) { settings }
         else
           logger.info "User settings already attached"

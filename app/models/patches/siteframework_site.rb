@@ -12,6 +12,12 @@ SiteFramework::Site.class_eval do
 
     embeds_one :setting
     embedded_in :namespace
+
+    after_initialize :build_default_setting
+
+    def build_default_setting
+      build_setting if setting.nil?
+    end
   end
 
   has_many :users, :class_name => 'Faalis::User'
