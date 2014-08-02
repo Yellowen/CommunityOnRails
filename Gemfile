@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 source 'http://rails-assets.org'
 
-gem 'rails', '4.0.4'
+gem 'rails', '~>4.1.0'
 #gem 'sqlite3'
 gem 'mongoid', '~>4.0.0.rc1'
 gem 'sass-rails', '~> 4.0.0'
@@ -41,6 +41,8 @@ end
 # Address of directory containing faalis.gemspec
 # ONLY FOR DEVELOPMENT
 params = {:github => 'Yellowen/Faalis'}
+dashstrap = {:github => 'Yellowen/dashstrap'}
+
 contacts_params = {:github => 'Yellowen/Faalis-Contacts'}
 site_framework = {:github => 'Yellowen/site_framework'}
 
@@ -51,13 +53,13 @@ if File.exists?(development_file)
   Faalis = [File.expand_path(File.dirname(__FILE__)),
               '../Faalis/'].join("/")
   puts 'Using Faalis source.'
-  params = {:path => Faalis, :branch => 'mongo'}
-
+  params = {:path => Faalis}
+  dashstrap = {:path => File.expand_path('../../dashstrap/', __FILE__)}
   contacts_params = {:path => File.expand_path('../../faalis_contacts/', __FILE__)}
   site_framework = {:path => File.expand_path('../../site_framework/', __FILE__)}
-
 end
 
+gem 'dashstrap', **dashstrap
 gem 'faalis', **params
 gem 'site_framework', **site_framework
 gem 'compass-rails'
