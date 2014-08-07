@@ -59,8 +59,8 @@ if File.exists?(development_file)
   site_framework = {:path => File.expand_path('../../site_framework/', __FILE__)}
 end
 
-gem 'dashstrap', **dashstrap
 gem 'faalis', **params
+gem 'dashstrap', **dashstrap
 gem 'site_framework', **site_framework
 gem 'compass-rails'
 gem 'model_discovery', :path => '/home/lxsameer/src/Yellowen/model_discovery'
