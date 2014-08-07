@@ -3,11 +3,14 @@ source 'http://rails-assets.org'
 
 gem 'rails', '~>4.1.0'
 #gem 'sqlite3'
-gem 'mongoid', '~>4.0.0.rc1'
+gem 'mongoid', '~>4.0.0'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
+
+# Dashstrap
+gem 'jquery-ui-rails'
 
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
@@ -58,9 +61,9 @@ if File.exists?(development_file)
   contacts_params = {:path => File.expand_path('../../faalis_contacts/', __FILE__)}
   site_framework = {:path => File.expand_path('../../site_framework/', __FILE__)}
 end
-
 gem 'faalis', **params
 gem 'dashstrap', **dashstrap
+
 gem 'site_framework', **site_framework
 gem 'compass-rails'
 gem 'model_discovery', :path => '/home/lxsameer/src/Yellowen/model_discovery'
