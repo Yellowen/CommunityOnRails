@@ -1,4 +1,5 @@
-//= require bootstrap
+//= require rtl/bootstrap
+//= require rtl/bootstrap-rtl
 //= require font-awesome
 /*
 ionicons
@@ -8,5 +9,5 @@ datepicker3.css
 daterangepicker-bs3
 bootstrap3-wysihtml5
 */
-//= require AdminLTE
+//= require rtl/AdminLTE
 //= require dashstrap/dashboard/share
