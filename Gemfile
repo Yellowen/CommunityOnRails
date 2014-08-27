@@ -62,6 +62,7 @@ if File.exists?(development_file)
   site_framework = {:path => File.expand_path('../../site_framework/', __FILE__)}
 end
 gem 'faalis', **params
+#gem 'faalis', '1.0.0.alpha0'
 gem 'dashstrap', **dashstrap
 
 gem 'site_framework', **site_framework

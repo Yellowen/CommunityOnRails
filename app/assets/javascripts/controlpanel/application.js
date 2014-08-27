@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require faalis/angular-manifest
+//= require dashboard
 //= require faalis/dashboard/application
 //= reuiqre_tree ./modules
 //= require_tree .

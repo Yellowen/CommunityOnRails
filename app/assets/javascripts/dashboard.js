@@ -1,10 +1,8 @@
-//= require jquery
-//= require jquery_ujs
-
 //= require jquery-ui
-//= require jquery-ui/tooltip
+///= require jquery-ui/tooltip
+//= require ui-bootstrap
 
-//= require bootstrap
+
 /* Plugins
 raphael
 morris
