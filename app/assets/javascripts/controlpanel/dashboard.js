@@ -1,8 +1,14 @@
+/// From Faalis -----------------------------
+//= require faalis/angular-manifest
+
+
+/// From Dashstrap
 //= require jquery-ui
 ///= require jquery-ui/tooltip
 //= require ui-bootstrap
+//= require_tree dashstrap/modules
 
-
+// Available plugins
 /* Plugins
 raphael
 morris
@@ -17,3 +23,6 @@ icheck
 */
 //= require AdminLTE/app
 //= require AdminLTE/dashboard
+
+/// Faalis dashboard main application --------
+//= require faalis/dashboard/application
