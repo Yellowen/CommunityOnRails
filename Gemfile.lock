@@ -48,7 +48,7 @@ PATH
 PATH
   remote: /home/lxsameer/src/Yellowen/model_discovery
   specs:
-    model_discovery (0.3.4)
+    model_discovery (0.3.5)
       orm_adapter
       railties (~> 4)
 

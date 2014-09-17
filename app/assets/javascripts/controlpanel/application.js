@@ -10,5 +10,33 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require controlpanel/dashboard
-//= reuiqre_tree ./modules
+
+/// From Faalis -----------------------------
+//= require faalis/angular-manifest
+
+
+/// From Dashstrap
+//= require jquery-ui
+///= require jquery-ui/tooltip
+//= require ui-bootstrap
+//= require dashstrap/application
+
+// Available plugins
+/* Plugins
+raphael
+morris
+jquery.sparkline
+jquery-jvectormap
+jquery-jvectormap-world-mill-en
+jquery.knob
+daterangepicker
+bootstrap-datepicker
+bootstrap3-wysihtml5.all
+icheck
+*/
+//= require AdminLTE/app
+//= require AdminLTE/dashboard
+
+/// Faalis dashboard main application --------
+//= require_tree ./modules
+//= require faalis/dashboard/application
