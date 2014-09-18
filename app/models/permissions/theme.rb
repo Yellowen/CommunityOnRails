@@ -1,8 +1,8 @@
 class Permissions::Theme
-  include Faalis::Permissions
+  include Faalis::Concerns::Authorizable
 
   def self.humanize_class_name
-    "Themes"
+    'Themes'
   end
 
 end

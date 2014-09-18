@@ -1,5 +1,5 @@
 class Permissions::Settings
-  include Faalis::Permissions
+  include Faalis::Concerns::Authorizable
 
   def self.humanize_class_name
     "Settings Module"

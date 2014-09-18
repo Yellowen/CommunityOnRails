@@ -5,7 +5,7 @@ class Namespace < Faalis::ORM.proper_base_class
   if Faalis::ORM.mongoid?
     include Mongoid::Document
     include Mongoid::Timestamps
-    include Faalis::Permissions
+    include Faalis::Concerns::Authorizable
 
     embeds_many :sites, :class_name => 'SiteFramework::Site'
 

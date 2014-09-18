@@ -1,6 +1,8 @@
 # Extend SiteFramework::Site class to add extra functionality
 SiteFramework::Site.class_eval do
 
+  include Faalis::Concerns::Authorizable
+
   if Faalis::ORM.active_record?
     belongs_to :site_category
     has_one :setting
