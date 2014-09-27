@@ -22,10 +22,12 @@
     ],
     "model": "SiteFramework::Site",
     "no_filter": true,
+
     "deps": [
         "namespace",
         "site_category"
     ],
+
     "menu": [
         {
             "title": "Namespaces",
