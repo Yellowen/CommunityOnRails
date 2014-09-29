@@ -1,4 +1,5 @@
 class API::V1::SiteCategoriesController < APIController
+  
   before_filter :build_resource, :only => :create
   
   load_and_authorize_resource :except => [:destory]

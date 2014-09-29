@@ -28,6 +28,6 @@ namespace :build do
 
   desc "Create site category scaffold"
   task :site_category => :environment do
-    system "#{LIST_VIEW} site_category name:string description:text --no-bulk --no-filter"
+    system "#{LIST_VIEW}site_category.json"
   end
 end

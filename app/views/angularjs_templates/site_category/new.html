@@ -1,36 +1,46 @@
 
-
-
-<form novalidate name="form">
- <div class="newform">
-  <fieldset class="form">
-
-    <legend ng-if="!editing"><span translate>New Site categories</span></legend>
-    <legend ng-if="editing"><span translate>Edit Site categories</span></legend>
-
+  <form novalidate name="form">
     
-    <div class="row">
-      <div class="small-4 columns ">
-        <label><span translate>Name</span> :</label>
-        <string-field model="name" field-name="'name'" css-class="'rounded string_field'" ></string-field>
+
+      <div class="form box box-info">
+
+        <div class="box-header">
+          <h2 class="box-title">
+            <span ng-if="!editing" translate>Site categories</span>
+            <span ng-if="editing" translate>Edit Site categories</span>
+          </h2>
+        </div>
+
+
+        <div class="box-body">
+
+          
+            <div class="row">
+              <div class="col-sm-4 form-group ">
+                <label><i class="inline fa fa-asterisk"></i> <span translate>Name</span> :</label>
+                <string-field model="name" field-name="'name'" css-class="'form-control input-lg rounded string_field'" required="true"></string-field>
+              </div>
+              
+            
+              <div class="col-sm-4 form-group pull-left col-sm-offset-2">
+                <label><span translate>Description</span> :</label>
+                <text-field model="description" field-name="'description'" css-class="'form-control input-lg rounded text_field'" ></text-field>
+              </div>
+              </div>
+        </div>
+        <!-- body body -->
       </div>
+      <!-- box -->
     
-    
-      <div class="small-4 columns float-left small-offset-2">
-        <label><span translate>Description</span> :</label>
-        <text-field model="description" field-name="'description'" css-class="'rounded text_field'" ></text-field>
-      </div>
-    </div>
-  </fieldset>
-</form>
+  </form>
 
 
 
   <div class="row">
-      <div class="small-6 columns">
-        <button class="btn small green" ng-click="save(false)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save</span></button>
-        <button class="btn small blue" ng-click="save(true)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save & Add Another</span></button>
-        <button class="btn small red" ng-click="cancel()"><i class="fa fa-times"></i> <span translate>Cancel</span></button>
+      <div class="col-sm-6 columns">
+        <button class="btn btn-lg btn-success" ng-click="save(false)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save</span></button>
+        <button class="btn btn-lg btn-primary" ng-click="save(true)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save & Add Another</span></button>
+        <button class="btn btn-lg btn-danger" ng-click="cancel()"><i class="fa fa-times"></i> <span translate>Cancel</span></button>
       </div>
   </div>
 </div>

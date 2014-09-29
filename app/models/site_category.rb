@@ -10,6 +10,6 @@ class SiteCategory < Faalis::ORM.proper_base_class
     field :description, :type => String
   end
 
-  has_many :sites, :class_name => "SiteFramework::Site" \
+  has_many :sites, :class_name => 'SiteFramework::Site' \
   if Faalis::ORM.active_record?
 end

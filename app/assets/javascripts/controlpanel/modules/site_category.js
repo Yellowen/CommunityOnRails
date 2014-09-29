@@ -1,10 +1,8 @@
-
 // SiteCategories Module
 var SiteCategories = angular.module("SiteCategory", ["ListView", "Filter", "Anim", "Fields",]);
 
 // SiteCategories configuration section ---------------------------
 SiteCategories.config(["$routeProvider", function($routeProvider){
-
     // Add any route you need here
     $routeProvider.
         when("/site_categories", {
@@ -19,17 +17,36 @@ SiteCategories.config(["$routeProvider", function($routeProvider){
             templateUrl: template("site_category/new"),
             controller: "AddSiteCategoryController"
         });
-
 }]);
+
 
 // SiteCategory index controller -------------------------------------------------------
 // This controller is responsible for list page (index)
-SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams",
-                                      function($scope, gettext, API, catch_error, $location, $routeParams){
+SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams", function($scope, gettext, API, catch_error, $location, $routeParams){
 
     
     
-    
+    // Cache object for each field name possible values
+    $scope.cache = {};
+
+    // Change event handler for field_name combobox in bulk edit
+    $scope.field_name_change = function(x){
+        var current_value = $("#field_name").val();
+        $scope.current_field= _.find($scope.fields, function(x){
+            return x.name == current_value;
+        });
+        if( "to" in $scope.current_field ){
+            if (! ($scope.current_field.name in $scope.cache)) {
+                $scope.current_field.to().then(function(x){
+                    $scope.cache[$scope.current_field.name] = x;
+                });
+            }
+        }
+    };
+
+    $scope.columns = [];
+    $scope.fields = [
+    ];
 
     // details_template is the address of template which should load for
     // each item details section
@@ -48,6 +65,19 @@ SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Resta
             route: "#/site_categories/new"
 
          },
+        {
+            title: gettext("Bulk Edit"),
+            icon: "fa fa-edit",
+            classes: "btn tiny yellow",
+            permission: {
+              name: "update",
+              model: "SiteCategory"
+            },
+            action: function(){
+                $scope.$apply("bulk_edit = ! bulk_edit");
+            },
+
+        },
         {
             title: gettext("Duplicate"),
             icon: "fa fa-files-o",
@@ -71,6 +101,63 @@ SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Resta
         }
 
     ];
+
+    /*
+     * On bulk save event
+     */
+    $scope.bulk_save = function(){
+
+        $scope.view_progressbar = true;
+        var value = $("#field_value").val();
+        var field = $scope.current_field.name;
+        var type = $scope.current_field.type;
+        var field_name = $scope.current_field.title;
+        if ((type == "has_many") || (type == "belongs_to")) {
+            value = parseInt(value, 10);
+        }
+        var requests_count = 0;
+
+        $scope.rfiller = 0;
+        $scope.sfiller = 0;
+        $scope.success = 0;
+        $scope.failed = 0;
+        $scope.total = _.where($scope.site_categories, function(x){return x.is_selected === true;}).length;
+
+        _.each($scope.site_categories, function(x){
+            if( x.is_selected === true ){
+                x[field] = value;
+                requests_count++;
+
+                var rwidth = (requests_count * 100) / $scope.total;
+                if (requests_count == $scope.total) { rwidth = 100; }
+                $scope.rfiller = rwidth + "%";
+
+                API.one("site_categories", x.id).patch(x).then(function(data){
+                    $scope.success++;
+                    var swidth = parseInt(($scope.success * 100) / $scope.total);
+                    if ($scope.sucess == $scope.total) { swidth = 100; }
+                    $scope.sfiller = swidth + "%";
+                    x[field_name.toLowerCase()] = data[field_name.toLowerCase()];
+                }, function(data){
+                    $scope.failed++;
+                    catch_error(data);
+                });
+
+            }
+        });
+
+    };
+
+    /*
+     * On bulk cancel event
+     */
+    $scope.bulk_cancel = function(){
+        $("#field_name").val(0);
+        document.getElementById("bulk_form").reset();
+        $scope.view_progressbar = false;
+        $scope.bulk_edit = false;
+    };
+    
     /*
      * On delete event handler - `items` is an array of objects to delete
      */
@@ -103,6 +190,7 @@ SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Resta
         });
      
 }]);
+
 
 SiteCategories.controller("AddSiteCategoryController", ["Restangular", "$scope", "$location", "$routeParams", "gettext", "catch_error", function(API, $scope, $location, $routeParams, gettext, catch_error){
 
@@ -190,4 +278,7 @@ SiteCategories.controller("AddSiteCategoryController", ["Restangular", "$scope",
 
     };
 }]);
+
+
+
 
