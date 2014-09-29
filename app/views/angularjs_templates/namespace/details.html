@@ -1,12 +1,17 @@
-<div class="details">
+<div class="row">
+  <div class="col-sm-12 col-md-8">
+
+    <div class="details">
     
-      <p>
-      <b translate>Name :</b> {{object.name}}
-      </p>
+      <dl>
+      <dt translate>Name :</dt> <dd clas="detail field value">{{object.name}}</dd>
+      </dl>
     
-  <ul class="button-group float-right">
-    <a ng-href="#/namespaces/{{ object.id }}/edit" class="small">
-      <span class="fa fa-edit"></span> <span translated>Edit</span>
-    </a>
-  </ul>
+    </div>
+
+
+  </div>
+
+  <div class="col-sm-12 col-md-4">
+  </div>
 </div>

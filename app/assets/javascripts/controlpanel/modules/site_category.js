@@ -25,6 +25,19 @@ SiteCategories.config(["$routeProvider", function($routeProvider){
 SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams", function($scope, gettext, API, catch_error, $location, $routeParams){
 
     
+
+    $scope.list_title = 'SiteCategory';
+
+    $scope.tools = [
+        {
+            url: function(object) {
+                console.log(object);
+                return "#" + "/site_categories/" + object.id + "/edit";
+            },
+            icon: 'fa fa-edit'
+        }
+    ];
+
     
     // Cache object for each field name possible values
     $scope.cache = {};
@@ -57,7 +70,7 @@ SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Resta
         {
             title: gettext("New"),
             icon: "fa fa-plus",
-            classes: "btn tiny green",
+            classes: "btn btn-success",
             permission: {
               name: "create",
               model: "SiteCategory"
@@ -68,7 +81,7 @@ SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Resta
         {
             title: gettext("Bulk Edit"),
             icon: "fa fa-edit",
-            classes: "btn tiny yellow",
+            classes: "btn btn-warning",
             permission: {
               name: "update",
               model: "SiteCategory"
@@ -81,7 +94,7 @@ SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Resta
         {
             title: gettext("Duplicate"),
             icon: "fa fa-files-o",
-            classes: "btn tiny red",
+            classes: "btn btn-danger",
             permission: {
               name: "create",
               model: "SiteCategory"
@@ -193,7 +206,6 @@ SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Resta
 
 
 SiteCategories.controller("AddSiteCategoryController", ["Restangular", "$scope", "$location", "$routeParams", "gettext", "catch_error", function(API, $scope, $location, $routeParams, gettext, catch_error){
-
     
 
     $scope.select2options = {};

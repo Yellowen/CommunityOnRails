@@ -25,6 +25,19 @@ Namespaces.config(["$routeProvider", function($routeProvider){
 Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams", function($scope, gettext, API, catch_error, $location, $routeParams){
 
     
+
+    $scope.list_title = 'Namespace';
+
+    $scope.tools = [
+        {
+            url: function(object) {
+                console.log(object);
+                return "#" + "/namespaces/" + object.id + "/edit";
+            },
+            icon: 'fa fa-edit'
+        }
+    ];
+
     
     // Cache object for each field name possible values
     $scope.cache = {};
@@ -57,7 +70,7 @@ Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular"
         {
             title: gettext("New"),
             icon: "fa fa-plus",
-            classes: "btn tiny green",
+            classes: "btn btn-success",
             permission: {
               name: "create",
               model: "Namespace"
@@ -68,7 +81,7 @@ Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular"
         {
             title: gettext("Bulk Edit"),
             icon: "fa fa-edit",
-            classes: "btn tiny yellow",
+            classes: "btn btn-warning",
             permission: {
               name: "update",
               model: "Namespace"
@@ -81,7 +94,7 @@ Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular"
         {
             title: gettext("Duplicate"),
             icon: "fa fa-files-o",
-            classes: "btn tiny red",
+            classes: "btn btn-danger",
             permission: {
               name: "create",
               model: "Namespace"
@@ -193,7 +206,6 @@ Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular"
 
 
 Namespaces.controller("AddNamespaceController", ["Restangular", "$scope", "$location", "$routeParams", "gettext", "catch_error", function(API, $scope, $location, $routeParams, gettext, catch_error){
-
     
 
     $scope.select2options = {};

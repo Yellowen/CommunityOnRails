@@ -1,16 +1,14 @@
 
-
-
   <form novalidate name="form">
     
 
       <div class="form box box-info">
 
         <div class="box-header">
-          <h3 class="box-title">
+          <h2 class="box-title">
             <span ng-if="!editing" translate>Namespaces</span>
             <span ng-if="editing" translate>Edit Namespaces</span>
-          </h3>
+          </h2>
         </div>
 
 
@@ -34,9 +32,9 @@
 
   <div class="row">
       <div class="col-sm-6 columns">
-        <button class="btn small green" ng-click="save(false)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save</span></button>
-        <button class="btn small blue" ng-click="save(true)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save & Add Another</span></button>
-        <button class="btn small red" ng-click="cancel()"><i class="fa fa-times"></i> <span translate>Cancel</span></button>
+        <button class="btn btn-lg btn-success" ng-click="save(false)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save</span></button>
+        <button class="btn btn-lg btn-primary" ng-click="save(true)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save & Add Another</span></button>
+        <button class="btn btn-lg btn-danger" ng-click="cancel()"><i class="fa fa-times"></i> <span translate>Cancel</span></button>
       </div>
   </div>
 </div>

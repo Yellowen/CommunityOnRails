@@ -1,24 +1,29 @@
-<div class="details">
+<div class="row">
+  <div class="col-sm-12 col-md-8">
+
+    <div class="details">
     
-      <p>
-      <b translate>Title :</b> {{object.title}}
-      </p>
+      <dl>
+      <dt translate>Title :</dt> <dd clas="detail field value">{{object.title}}</dd>
+      </dl>
     
-      <p>
-       <b translate>Site_category :</b> {{object.site_category.name}}
-      </p>
+      <dl>
+       <dt translate>Site_category :</dt> <dd clas="detail field value">{{object.site_category.name}}</dd>
+      </dl>
     
-      <p>
-       <b translate>Namespace :</b> {{object.namespace.name}}
-      </p>
+      <dl>
+       <dt translate>Namespace :</dt> <dd clas="detail field value">{{object.namespace.name}}</dd>
+      </dl>
     
-      <p>
-      <b translate>Description :</b> {{object.description}}
-      </p>
+      <dl>
+      <dt translate>Description :</dt> <dd clas="detail field value">{{object.description}}</dd>
+      </dl>
     
-  <ul class="button-group float-right">
-    <a ng-href="#/sites/{{ object.id }}/edit" class="small">
-      <span class="fa fa-edit"></span> <span translated>Edit</span>
-    </a>
-  </ul>
+    </div>
+
+
+  </div>
+
+  <div class="col-sm-12 col-md-4">
+  </div>
 </div>

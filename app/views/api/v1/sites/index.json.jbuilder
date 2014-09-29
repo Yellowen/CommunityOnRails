@@ -1,5 +1,6 @@
 json.array! @sites do |site|
-  json.extract! site, :id, :title, :description
+  json.id site.id.to_s
+  json.extract! site, :title, :description
   json.site_category do
     if site.site_category
       json.id site.site_category.id

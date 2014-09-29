@@ -25,6 +25,19 @@ Sites.config(["$routeProvider", function($routeProvider){
 Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_error", "$location", "$routeParams", function($scope, gettext, API, catch_error, $location, $routeParams){
 
     
+
+    $scope.list_title = 'Site';
+
+    $scope.tools = [
+        {
+            url: function(object) {
+                console.log(object);
+                return "#" + "/sites/" + object.id + "/edit";
+            },
+            icon: 'fa fa-edit'
+        }
+    ];
+
     
     // Cache object for each field name possible values
     $scope.cache = {};
@@ -57,7 +70,7 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
         {
             title: gettext("New"),
             icon: "fa fa-plus",
-            classes: "btn tiny green",
+            classes: "btn btn-success",
             permission: {
               name: "create",
               model: "SiteFramework::Site"
@@ -68,7 +81,7 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
         {
             title: gettext("Bulk Edit"),
             icon: "fa fa-edit",
-            classes: "btn tiny yellow",
+            classes: "btn btn-warning",
             permission: {
               name: "update",
               model: "SiteFramework::Site"
@@ -81,7 +94,7 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
         {
             title: gettext("Duplicate"),
             icon: "fa fa-files-o",
-            classes: "btn tiny red",
+            classes: "btn btn-danger",
             permission: {
               name: "create",
               model: "SiteFramework::Site"
@@ -193,7 +206,6 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
 
 
 Sites.controller("AddSiteController", ["Restangular", "$scope", "$location", "$routeParams", "gettext", "catch_error", function(API, $scope, $location, $routeParams, gettext, catch_error){
-
     
 
     $scope.select2options = {};
