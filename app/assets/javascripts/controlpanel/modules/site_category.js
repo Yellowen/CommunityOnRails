@@ -31,7 +31,6 @@ SiteCategories.controller("SiteCategoryController", ["$scope", "gettext", "Resta
     $scope.tools = [
         {
             url: function(object) {
-                console.log(object);
                 return "#" + "/site_categories/" + object.id + "/edit";
             },
             icon: 'fa fa-edit'

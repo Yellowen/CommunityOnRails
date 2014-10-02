@@ -31,7 +31,6 @@ Namespaces.controller("NamespaceController", ["$scope", "gettext", "Restangular"
     $scope.tools = [
         {
             url: function(object) {
-                console.log(object);
                 return "#" + "/namespaces/" + object.id + "/edit";
             },
             icon: 'fa fa-edit'

@@ -31,7 +31,6 @@ Sites.controller("SiteController", ["$scope", "gettext", "Restangular", "catch_e
     $scope.tools = [
         {
             url: function(object) {
-                console.log(object);
                 return "#" + "/sites/" + object.id + "/edit";
             },
             icon: 'fa fa-edit'
