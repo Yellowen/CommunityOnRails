@@ -48,6 +48,7 @@ dashstrap = {:github => 'Yellowen/dashstrap'}
 
 contacts_params = {:github => 'Yellowen/Faalis-Contacts'}
 site_framework = {:github => 'Yellowen/site_framework'}
+page = {:github => 'Yellowen/faalis_page'}
 
 development_file = [File.expand_path(File.dirname(__FILE__)),
                     '.development'].join("/")
@@ -60,6 +61,8 @@ if File.exists?(development_file)
   dashstrap = {:path => File.expand_path('../../dashstrap/', __FILE__)}
   contacts_params = {:path => File.expand_path('../../faalis_contacts/', __FILE__)}
   site_framework = {:path => File.expand_path('../../site_framework/', __FILE__)}
+  page = {:path => File.expand_path('../../faalis_page/', __FILE__)}
+
 end
 gem 'faalis', **params
 #gem 'faalis', '1.0.0.alpha0'
@@ -68,3 +71,4 @@ gem 'dashstrap', **dashstrap
 gem 'site_framework', **site_framework
 gem 'compass-rails'
 gem 'model_discovery', :path => '/home/lxsameer/src/Yellowen/model_discovery'
+gem 'faalis_page', **page
