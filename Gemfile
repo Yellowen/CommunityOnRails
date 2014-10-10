@@ -53,7 +53,7 @@ page = {:github => 'Yellowen/faalis_page'}
 development_file = [File.expand_path(File.dirname(__FILE__)),
                     '.development'].join("/")
 
-if File.exists?(development_file)
+if File.exist?(development_file)
   Faalis = [File.expand_path(File.dirname(__FILE__)),
               '../Faalis/'].join("/")
   puts 'Using Faalis source.'
@@ -64,6 +64,7 @@ if File.exists?(development_file)
   page = {:path => File.expand_path('../../faalis_page/', __FILE__)}
 
 end
+
 gem 'faalis', **params
 #gem 'faalis', '1.0.0.alpha0'
 gem 'dashstrap', **dashstrap
