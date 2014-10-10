@@ -29,6 +29,11 @@ Faalis::Engine.setup do |config|
       :sidemenu => true,
       :resource => :site,
     },
+    :page => {
+      :icon => "fa fa-file-o",
+      :sidemenu => true,
+      :title => "Pages"
+    },
     :settings => {
       :icon => "fa fa-cog",
       :sidemenu => true,

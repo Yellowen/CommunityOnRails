@@ -40,3 +40,4 @@ icheck
 /// Faalis dashboard main application --------
 //= require_tree ./modules
 //= require faalis/dashboard/application
+//= require faalis_page/application
