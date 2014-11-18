@@ -43,7 +43,7 @@ end
 
 # Address of directory containing faalis.gemspec
 # ONLY FOR DEVELOPMENT
-params = {:github => 'Yellowen/Faalis'}
+params = {:github => 'Yellowen/Faalis' , :ref => '243957f8d86a966095d91625392064a7a45bfe7d'}
 dashstrap = {:github => 'Yellowen/dashstrap'}
 
 contacts_params = {:github => 'Yellowen/Faalis-Contacts'}
@@ -71,5 +71,5 @@ gem 'dashstrap', **dashstrap
 
 gem 'site_framework', **site_framework
 gem 'compass-rails'
-gem 'model_discovery', :path => '/home/lxsameer/src/Yellowen/model_discovery'
+gem 'model_discovery', :path => '/home/yottanami/Projects/yellowen/model_discovery'
 gem 'faalis_page', **page

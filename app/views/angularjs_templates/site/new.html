@@ -1,62 +1,62 @@
 
-  <form novalidate name="form">
-    
+<form novalidate name="form">
 
-      <div class="form box box-info">
 
-        <div class="box-header">
-          <h2 class="box-title">
-            <span ng-if="!editing" translate>Sites</span>
-            <span ng-if="editing" translate>Edit Sites</span>
-          </h2>
+  <div class="form box box-info">
+
+    <div class="box-header">
+      <h2 class="box-title">
+        <span ng-if="!editing" translate>Sites</span>
+        <span ng-if="editing" translate>Edit Sites</span>
+      </h2>
+    </div>
+
+
+    <div class="box-body">
+
+
+      <div class="row">
+        <div class="col-sm-4 form-group ">
+          <label><span translate>Title</span> :</label>
+          <string-field model="title" field-name="'title'" css-class="'form-control input-lg rounded string_field'" ></string-field>
         </div>
 
 
-        <div class="box-body">
+        <div class="col-sm-4 form-group pull-left col-sm-offset-2">
+          <label><span translate>Site category</span> :</label>
+          <relation-field select2-options="select2options"  title-field="'name'" model="site_category" field-data="site_category_data">
+          </relation-field>
 
-          
-            <div class="row">
-              <div class="col-sm-4 form-group ">
-                <label><span translate>Title</span> :</label>
-                <string-field model="title" field-name="'title'" css-class="'form-control input-lg rounded string_field'" ></string-field>
-              </div>
-              
-            
-              <div class="col-sm-4 form-group pull-left col-sm-offset-2">
-                <label><span translate>Site category</span> :</label>
-                <relation-field select2-options="select2options"  title-field="'name'" model="site_category" field-data="site_category_data">
-                </relation-field>
-                
-              </div>
-              </div>
-            <div class="row">
-              <div class="col-sm-4 form-group ">
-                <label><span translate>Namespace</span> :</label>
-                <relation-field select2-options="select2options"  title-field="'name'" model="namespace" field-data="namespace_data">
-                </relation-field>
-                
-              </div>
-              
-            
-              <div class="col-sm-4 form-group pull-left col-sm-offset-2">
-                <label><span translate>Description</span> :</label>
-                <text-field model="description" field-name="'description'" css-class="'form-control input-lg rounded text_field'" ></text-field>
-              </div>
-              </div>
         </div>
-        <!-- body body -->
       </div>
-      <!-- box -->
-    
-  </form>
+      <div class="row">
+        <div class="col-sm-4 form-group ">
+          <label><span translate>Namespace</span> :</label>
+          <relation-field select2-options="select2options"  title-field="'name'" model="namespace" field-data="namespace_data">
+          </relation-field>
+
+        </div>
 
 
-
-  <div class="row">
-      <div class="col-sm-6 columns">
-        <button class="btn btn-lg btn-success" ng-click="save(false)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save</span></button>
-        <button class="btn btn-lg btn-primary" ng-click="save(true)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save & Add Another</span></button>
-        <button class="btn btn-lg btn-danger" ng-click="cancel()"><i class="fa fa-times"></i> <span translate>Cancel</span></button>
+        <div class="col-sm-4 form-group pull-left col-sm-offset-2">
+          <label><span translate>Description</span> :</label>
+          <text-field model="description" field-name="'description'" css-class="'form-control input-lg rounded text_field'" ></text-field>
+        </div>
       </div>
+    </div>
+    <!-- body body -->
+  </div>
+  <!-- box -->
+
+</form>
+
+
+
+<div class="row">
+  <div class="col-sm-6 columns">
+    <button class="btn btn-lg btn-success" ng-click="save(false)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save</span></button>
+    <button class="btn btn-lg btn-primary" ng-click="save(true)" ng-disabled="form.$invalid || !form.$dirty"><i class="fa fa-check"></i> <span translate>Save & Add Another</span></button>
+    <button class="btn btn-lg btn-danger" ng-click="cancel()"><i class="fa fa-times"></i> <span translate>Cancel</span></button>
   </div>
 </div>
+  </div>

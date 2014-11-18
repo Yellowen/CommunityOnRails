@@ -1,4 +1,6 @@
 //= require variables
-//= require rtl/foundation_and_overrides
+//= require bootstrap
+//= require font-awesome
+//= require AdminLTE
 //= require base
 //= require home
