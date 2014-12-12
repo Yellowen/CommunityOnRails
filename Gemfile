@@ -71,5 +71,5 @@ gem 'dashstrap', **dashstrap
 
 gem 'site_framework', **site_framework
 gem 'compass-rails'
-gem 'model_discovery', :path => '/home/yottanami/Projects/yellowen/model_discovery'
+gem 'model_discovery'
 gem 'faalis_page', **page
