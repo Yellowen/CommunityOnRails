@@ -9,5 +9,5 @@
  *= require cloudme/owl.theme
  *= require cloudme/owl.transitions
  *= require slicknav
- *= require cloudme/style
+ *= require cloudme/rtl/style
 */
