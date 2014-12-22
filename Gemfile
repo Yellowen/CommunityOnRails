@@ -9,6 +9,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 
+gem 'slim-rails'
+
 # Dashstrap
 gem 'jquery-ui-rails'
 
@@ -70,6 +72,22 @@ gem 'faalis', **params
 gem 'dashstrap', **dashstrap
 
 gem 'site_framework', **site_framework
-gem 'compass-rails'
+#gem 'compass-rails'
 gem 'model_discovery'
 gem 'faalis_page', **page
+
+# CloudMe
+gem 'foundation-rails', '~>5.3.0'
+gem 'rails-assets-Morphext'
+gem 'rails-assets-slicknav'
+
+# style
+gem 'rails-assets-animate-sass'
+gem 'normalize-rails'
+
+# JS
+gem 'rails-assets-WOW'
+gem 'rails-assets-jquery-hoverIntent'
+gem 'rails-assets-superfish'
+gem 'rails-assets-jquery-waypoints'
+gem 'rails-assets-retinajs'

@@ -1,5 +1,7 @@
 Factorien::Application.routes.draw do
 
+  root 'welcome#index'
+
   namespace :api, :defaults => {:format => :json} do
     namespace :v1 do
       resources :settings
@@ -9,7 +11,6 @@ Factorien::Application.routes.draw do
     end
   end
 
-  mount Faalis::Engine => "/"
+  mount Faalis::Engine => '/'
   Faalis::Routes.define_api_routes
-  # root 'welcome#index'
 end

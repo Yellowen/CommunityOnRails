@@ -42,6 +42,7 @@ PATH
       jquery-ui-rails
       less-rails
       railties (~> 4)
+      select2-rails
 
 PATH
   remote: /home/lxsameer/src/Yellowen/faalis_page
@@ -131,16 +132,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    chunky_png (1.3.3)
     coderay (1.1.0)
     colorize (0.7.5)
     commonjs (0.2.7)
-    compass (0.12.7)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.2.19)
-    compass-rails (2.0.0)
-      compass (>= 0.12.2)
     connection_pool (2.1.0)
     cucumber (1.3.17)
       builder (>= 2.1.2)
@@ -179,7 +173,9 @@ GEM
     fast_gettext (0.9.0)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
-    fssm (0.2.10)
+    foundation-rails (5.3.3.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     gettext_i18n_rails (1.1.0)
       fast_gettext (>= 0.9.0)
     gherkin (2.12.2)
@@ -246,6 +242,7 @@ GEM
     net-ssh (2.9.1)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
+    normalize-rails (3.0.1)
     oauth (0.4.7)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -299,6 +296,10 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.0)
       sprockets-rails
+    rails-assets-Morphext (2.2.1)
+      rails-assets-animate.css (~> 3.2.0)
+      rails-assets-jquery (~> 2.1.1)
+    rails-assets-WOW (1.0.2)
     rails-assets-angular (1.2.28)
     rails-assets-angular-gettext (1.1.4)
       rails-assets-angular (>= 1.2.0)
@@ -306,8 +307,14 @@ GEM
       rails-assets-angular (>= 1.2.0)
       rails-assets-jquery (>= 1.6.4)
       rails-assets-select2 (~> 3.4)
+    rails-assets-animate-sass (0.6.2)
+    rails-assets-animate.css (3.2.0)
     rails-assets-flow.js (2.8.0)
     rails-assets-jquery (2.1.3)
+    rails-assets-jquery-hoverIntent (1.8.1)
+      rails-assets-jquery (>= 1.9.1)
+    rails-assets-jquery-waypoints (2.0.5)
+      rails-assets-jquery (>= 1.8)
     rails-assets-lodash (2.4.1)
     rails-assets-ng-flow (2.4.3)
       rails-assets-angular (~> 1)
@@ -320,8 +327,12 @@ GEM
     rails-assets-restangular (1.4.0)
       rails-assets-angular
       rails-assets-lodash (>= 1.3.0, < 2.5.0)
+    rails-assets-retinajs (1.3.0)
     rails-assets-select2 (3.5.2)
       rails-assets-jquery (>= 1.7.1)
+    rails-assets-slicknav (1.0.1)
+      rails-assets-jquery (>= 1.7.0)
+    rails-assets-superfish (1.7.2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.5)
@@ -367,7 +378,14 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    select2-rails (3.5.9.1)
+      thor (~> 0.14)
     sexp_processor (4.4.4)
+    slim (3.0.0)
+      temple (~> 0.7.3)
+      tilt (>= 1.3.3, < 2.1)
+    slim-rails (0.2.1)
+      slim (>= 0.9.2)
     slop (3.6.0)
     sprockets (2.11.3)
       hike (~> 1.2)
@@ -382,6 +400,7 @@ GEM
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    temple (0.7.3)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -406,7 +425,6 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv!
   capybara
-  compass-rails
   cucumber-rails
   dashstrap!
   database_cleaner
@@ -415,6 +433,7 @@ DEPENDENCIES
   faalis_page!
   factory_girl_rails (~> 4.0)
   fast_gettext
+  foundation-rails (~> 5.3.0)
   gettext_i18n_rails
   jbuilder (~> 1.2)
   jquery-rails
@@ -422,15 +441,25 @@ DEPENDENCIES
   meta_request
   model_discovery
   mongoid (~> 4.0.0)
+  normalize-rails
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
   pry
   puma
   rails (~> 4.2.0)
+  rails-assets-Morphext
+  rails-assets-WOW
+  rails-assets-animate-sass
+  rails-assets-jquery-hoverIntent
+  rails-assets-jquery-waypoints
+  rails-assets-retinajs
+  rails-assets-slicknav
+  rails-assets-superfish
   rspec-rails (~> 3.0.0.beta)
   ruby_parser
   sass-rails (~> 4.0.0)
   sdoc
   site_framework!
+  slim-rails
   uglifier (>= 1.3.0)

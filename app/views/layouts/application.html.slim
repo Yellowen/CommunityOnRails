@@ -1,0 +1,20 @@
+doctype html
+html lang=(I18n.locale) dir=(Faalis::I18n.direction(I18n.locale))
+  head
+    meta[charset="utf-8"]
+    == favicon_link_tag 'favicon.ico'
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta[name="current_user" content =current_user.to_json]
+
+    title
+      = content_for?(:title) ? yield(:title) : Faalis::Engine.site_title
+    = csrf_meta_tags
+    = stylesheet_link_tag "#{Faalis::I18n.direction(I18n.locale)}/application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+
+    link[href="#{image_path('apple-touch-icon.png')}" rel="apple-touch-icon"]
+    link[href="#{image_path('apple-touch-icon-72x72.png')}" rel="apple-touch-icon" sizes="72x72"]
+    link[href="#{image_path('apple-touch-icon-114x114.png')}" rel="apple-touch-icon" sizes="114x114"]
+  body
+    = render 'partials/header'
+    = yield

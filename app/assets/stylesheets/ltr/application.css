@@ -1,6 +1,13 @@
-//= require variables
-//= require bootstrap
-//= require font-awesome
-//= require AdminLTE
-//= require base
-//= require home
+/*
+ *= require variables
+ *= require normalize
+ *= require foundation
+ *= require font-awesome
+ *= require animate-sass
+ *= require Morphext/morphext
+ *= require cloudme/owl.carousel
+ *= require cloudme/owl.theme
+ *= require cloudme/owl.transitions
+ *= require slicknav
+ *= require cloudme/style
+*/
