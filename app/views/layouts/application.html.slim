@@ -10,7 +10,6 @@ html lang=(I18n.locale) dir=(Faalis::I18n.direction(I18n.locale))
       = content_for?(:title) ? yield(:title) : Faalis::Engine.site_title
     = csrf_meta_tags
     = stylesheet_link_tag "#{Faalis::I18n.direction(I18n.locale)}/application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
 
     link[href="#{image_path('apple-touch-icon.png')}" rel="apple-touch-icon"]
     link[href="#{image_path('apple-touch-icon-72x72.png')}" rel="apple-touch-icon" sizes="72x72"]
@@ -18,3 +17,9 @@ html lang=(I18n.locale) dir=(Faalis::I18n.direction(I18n.locale))
   body
     = render 'partials/header'
     = yield
+    = render 'partials/footer'
+
+
+    a#back-to-top href="#top"
+      i.fa.fa-angle-up
+    = javascript_include_tag "application", "data-turbolinks-track" => true
