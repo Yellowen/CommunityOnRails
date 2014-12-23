@@ -1,6 +1,7 @@
 Factorien::Application.routes.draw do
 
   root 'welcome#index'
+  get 'coming_soon', to: 'welcome#coming_soon'
 
   namespace :api, :defaults => {:format => :json} do
     namespace :v1 do
