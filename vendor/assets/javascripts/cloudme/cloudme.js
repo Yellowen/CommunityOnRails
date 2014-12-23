@@ -1,13 +1,3 @@
-    var wow = new WOW (
-        {
-            boxClass:     'wow',
-            animateClass: 'animated',
-            offset:       0,
-            mobile:       false
-        }
-    );
-    wow.init();
-
 (function($){
     "use strict";
 
