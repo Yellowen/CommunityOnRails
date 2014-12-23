@@ -3,7 +3,7 @@
  *= require normalize
  *= require foundation
  *= require font-awesome
- *= require animate-sass
+ *= require cloudme/animate
  *= require Morphext/morphext
  *= require cloudme/owl.carousel
  *= require cloudme/owl.theme

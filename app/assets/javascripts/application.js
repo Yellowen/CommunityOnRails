@@ -11,15 +11,15 @@
 // about supported directives.
 //
 
-//=require jquery
-//=require foundation
-//=require jquery-hoverIntent
-//=require superfish
-//=require Morphext/morphext
-//=require WOW
-//=require slicknav/jquery.slicknav
-//=require jquery-waypoints
-//=require cloudme/jquery.animateNumber.min
-//=require cloudme/owl.carousel.min
-//=require retinajs/dist/retina
-//=require cloudme/cloudme
+//= require jquery
+//= require foundation
+//= require jquery-hoverIntent
+//= require superfish
+//= require Morphext/morphext
+//= require WOW
+//= require slicknav/jquery.slicknav
+//= require jquery-waypoints
+//= require cloudme/jquery.animateNumber.min
+//= require cloudme/owl.carousel.min
+//= require retinajs/dist/retina
+//= require cloudme/cloudme

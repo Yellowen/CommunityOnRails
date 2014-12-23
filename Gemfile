@@ -82,7 +82,6 @@ gem 'rails-assets-Morphext'
 gem 'rails-assets-slicknav'
 
 # style
-gem 'rails-assets-animate-sass'
 gem 'normalize-rails'
 
 # JS
@@ -91,3 +90,4 @@ gem 'rails-assets-jquery-hoverIntent'
 gem 'rails-assets-superfish'
 gem 'rails-assets-jquery-waypoints'
 gem 'rails-assets-retinajs'
+gem 'modernizr-rails'
