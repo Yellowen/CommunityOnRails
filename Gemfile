@@ -33,6 +33,7 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'puma'
   gem 'pry'
+  gem 'pry-byebug'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv', github: "capistrano/rbenv"
@@ -41,6 +42,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'ruby_parser'
+  gem 'quiet_assets'  # unclutters the server log from assets
 end
 
 # Address of directory containing faalis.gemspec

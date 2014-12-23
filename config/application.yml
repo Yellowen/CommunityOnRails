@@ -1,5 +1,5 @@
 development:
-  coming_soon: true
+  coming_soon: false
 
 production:
   coming_soon: true
