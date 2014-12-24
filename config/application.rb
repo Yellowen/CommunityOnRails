@@ -14,7 +14,6 @@ if File.exists?(File.expand_path('../application.yml', __FILE__))
   config = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
   config.merge! config.fetch(Rails.env, {})
   config.each do |key, value|
-    puts "<<<<< #{key}, #{value}"
     ENV[key] ||= value.to_s unless value.kind_of? Hash
   end
 end
@@ -50,6 +49,7 @@ module Factorien
       g.helper_specs false
     end
 
+    config.middleware.use 'Faalis::Middlewares::Locale'
     config.middleware.use 'SiteFramework::Middleware'
 
     def fetch_domain
