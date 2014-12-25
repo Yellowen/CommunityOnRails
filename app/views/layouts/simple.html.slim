@@ -1,0 +1,23 @@
+doctype html
+html.no-js lang=(I18n.locale) dir=(Faalis::I18n.direction(I18n.locale))
+  head
+    meta[charset="utf-8"]
+    == favicon_link_tag 'favicon.ico'
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+
+    title
+      = content_for?(:title) ? yield(:title) : Faalis::Engine.site_title
+
+    link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'
+
+    = stylesheet_link_tag "#{Faalis::I18n.direction(I18n.locale)}/application", media: "all"
+    = javascript_include_tag "modernizr"
+    = csrf_meta_tags
+
+    /link[href="#{image_path('apple-touch-icon.png')}" rel="apple-touch-icon"]
+    /link[href="#{image_path('apple-touch-icon-72x72.png')}" rel="apple-touch-icon" sizes="72x72"]
+    /link[href="#{image_path('apple-touch-icon-114x114.png')}" rel="apple-touch-icon" sizes="114x114"]
+  body
+    = yield
+
+    = javascript_include_tag "application"
