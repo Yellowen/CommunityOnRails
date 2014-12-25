@@ -1,1 +1,7 @@
 @import "variables";
+
+header {
+   &.simple {
+      background: url(image-path('header_alt-6_bg.jpg')) repeat transparent;
+   }
+}

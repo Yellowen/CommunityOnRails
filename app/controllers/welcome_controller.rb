@@ -8,6 +8,6 @@ class WelcomeController < ApplicationController
   end
 
   def coming_soon
-
+    render layout: 'simple'
   end
 end
