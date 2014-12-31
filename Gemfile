@@ -43,6 +43,7 @@ group :development, :test do
   gem 'meta_request'
   gem 'ruby_parser'
   gem 'quiet_assets'  # unclutters the server log from assets
+  gem 'spring'
 end
 
 # Address of directory containing faalis.gemspec

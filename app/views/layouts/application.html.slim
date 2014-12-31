@@ -8,8 +8,6 @@ html.no-js lang=(I18n.locale) dir=(Faalis::I18n.direction(I18n.locale))
     title
       = content_for?(:title) ? yield(:title) : Faalis::Engine.site_title
 
-    link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'
-
     = stylesheet_link_tag "#{Faalis::I18n.direction(I18n.locale)}/application", media: "all"
     = javascript_include_tag "modernizr"
     = csrf_meta_tags
