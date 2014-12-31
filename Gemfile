@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'slim-rails'
 
+gem 'sidekiq'
+
 # Dashstrap
 gem 'jquery-ui-rails'
 
@@ -94,3 +96,5 @@ gem 'rails-assets-superfish'
 gem 'rails-assets-jquery-waypoints'
 gem 'rails-assets-retinajs'
 gem 'modernizr-rails'
+
+

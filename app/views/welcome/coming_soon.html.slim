@@ -14,10 +14,10 @@ header.simple
     .subscribe.large.form
       .row.collapse
         .small-12.large-8.medium-8.large-centered.medium-centered.columns
-          form
+          = form_tag(subscribe_path, method: 'POST') do
             .row.collapse
               .small-12.large-9.medium-9.columns
-                input name="email" type="text" placeholder=(_("Enter your email address"))
+                = text_field_tag :email, nil, placeholder: _("Enter your email address")
               .small-12.large-3.medium-3.columns
                 input.btn-wide.btn.yellow name="submit" type="submit" value=(_('Subscribe'))
 
@@ -37,4 +37,4 @@ footer.simple
   .row
     .small-12.small-center.columns.text-center
       span
-        | Copyright
+        = _('Copyright Yellowen Inc")

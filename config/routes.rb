@@ -4,6 +4,7 @@ Factorien::Application.routes.draw do
   scope '(:locale)', locale: Regexp.new(langs) do
     root 'welcome#index'
     get 'coming_soon', to: 'welcome#coming_soon'
+    post 'subscribe', to: 'welcome#subscribe'
   end
 
   mount Faalis::Engine => '/'

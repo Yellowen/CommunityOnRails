@@ -10,4 +10,13 @@ class WelcomeController < ApplicationController
   def coming_soon
     render layout: 'simple'
   end
+
+  def subscribe
+    email = params[:email].downcase
+
+    if email ~= /[0-9a-z\._]+\@[0-9a-z\._]+\.[0-9a-z\._]#{2,3,4}/i
+
+    end
+  end
+
 end
