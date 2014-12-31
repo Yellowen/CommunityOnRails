@@ -16,7 +16,7 @@ class WelcomeController < ApplicationController
 
     respond_to do |f|
       if email ~= /[0-9a-z\._]+\@[0-9a-z\._]+\.[0-9a-z\._]#{2,3,4}/i
-        if Subscribe.new(email).call
+        if SubscribeService.new(email).call
           f.html { render 'subscribed' }
         else
           flash[:error] = _('Subscription failed. Please try again later.')
