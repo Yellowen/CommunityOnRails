@@ -27,7 +27,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'factory_girl_rails', "~> 4.0", :require => false
   gem 'database_cleaner'
@@ -96,5 +96,3 @@ gem 'rails-assets-superfish'
 gem 'rails-assets-jquery-waypoints'
 gem 'rails-assets-retinajs'
 gem 'modernizr-rails'
-
-

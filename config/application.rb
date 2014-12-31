@@ -34,14 +34,15 @@ module Factorien
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
     config.i18n.fallbacks = true
+
     config.autoload_paths << Rails.root.join('lib')
 
     Mongoid.logger.level = Logger::DEBUG
     Moped.logger.level = Logger::DEBUG
 
     config.generators do |g|
-      g.test_framework      :rspec,        :fixture => false
-      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+      g.test_framework      :rspec,        fixture: false
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
       g.assets false
       g.helper false
       g.helper = false

@@ -14,8 +14,18 @@ class WelcomeController < ApplicationController
   def subscribe
     email = params[:email].downcase
 
-    if email ~= /[0-9a-z\._]+\@[0-9a-z\._]+\.[0-9a-z\._]#{2,3,4}/i
-
+    respond_to do |f|
+      if email ~= /[0-9a-z\._]+\@[0-9a-z\._]+\.[0-9a-z\._]#{2,3,4}/i
+        if Subscribe.new(email).call
+          f.html { render 'subscribed' }
+        else
+          flash[:error] = _('Subscription failed. Please try again later.')
+          f.html { redirect_to request.referer  }
+        end
+      else
+          flash[:error] = _('Please enter a valid email address.')
+          f.html { redirect_to request.referer  }
+      end
     end
   end
 
