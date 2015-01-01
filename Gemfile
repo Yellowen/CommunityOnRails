@@ -46,6 +46,7 @@ group :development, :test do
   gem 'ruby_parser'
   gem 'quiet_assets'  # unclutters the server log from assets
   gem 'spring'
+  gem 'dotenv-rails'
 end
 
 # Address of directory containing faalis.gemspec
@@ -96,3 +97,5 @@ gem 'rails-assets-superfish'
 gem 'rails-assets-jquery-waypoints'
 gem 'rails-assets-retinajs'
 gem 'modernizr-rails'
+
+gem 'rest-client'

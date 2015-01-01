@@ -18,4 +18,5 @@ doc/*
 .development
 *~
 .\#.*
-.sass-cache/
+**/*/.sass-cache/**/*
+.env
