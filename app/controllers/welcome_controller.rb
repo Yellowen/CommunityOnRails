@@ -15,7 +15,7 @@ class WelcomeController < ApplicationController
     email = params[:email].downcase
 
     respond_to do |f|
-      if email ~= /[0-9a-z\._]+\@[0-9a-z\._]+\.[0-9a-z\._]#{2,3,4}/i
+      if email =~ /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i
         if SubscribeService.new(email).call
           f.html { render 'subscribed' }
         else
