@@ -8,7 +8,7 @@ require 'rails/test_unit/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 if File.exists?(File.expand_path('../application.yml', __FILE__))
   config = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
@@ -17,8 +17,6 @@ if File.exists?(File.expand_path('../application.yml', __FILE__))
     ENV[key] ||= value.to_s unless value.kind_of? Hash
   end
 end
-
-Dotenv::Railtie.load
 
 module Factorien
   class Application < Rails::Application

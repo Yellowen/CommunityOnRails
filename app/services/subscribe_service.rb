@@ -1,12 +1,12 @@
 class SubscribeService
 
-  def initializers(email)
+  def initialize(email)
     @email = email
-    @mailinglist =  ENV['NEWSLETTER']
-    @mailgun_api_key = ENV['MAILGUN_API_KEY']
+    @mailinglist =  Rails.application.secrets[:mailgun_mailinglist]
+    @mailgun_api_key = Rails.application.secrets[:mailgun_api]
   end
 
-  def add_list_member email
+  def add_list_member
     begin
       RestClient.post("https://api:#{@mailgun_api_key}" \
                       "@api.mailgun.net/v2/lists/#{@mailinglist}/members",

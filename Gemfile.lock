@@ -165,9 +165,6 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    dotenv (1.0.2)
-    dotenv-rails (1.0.2)
-      dotenv (= 1.0.2)
     email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
@@ -461,7 +458,6 @@ DEPENDENCIES
   cucumber-rails
   dashstrap!
   database_cleaner
-  dotenv-rails
   email_spec
   faalis!
   faalis_page!

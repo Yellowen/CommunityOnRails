@@ -46,7 +46,6 @@ group :development, :test do
   gem 'ruby_parser'
   gem 'quiet_assets'  # unclutters the server log from assets
   gem 'spring'
-  gem 'dotenv-rails'
 end
 
 # Address of directory containing faalis.gemspec
