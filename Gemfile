@@ -1,16 +1,22 @@
 source 'http://rubygems.org'
+# We need rails-assets to use Faalis
 source 'http://rails-assets.org'
 
 gem 'rails', '~>4.2.0'
-#gem 'sqlite3'
+
 gem 'mongoid', '~>4.0.0'
+
+# Native assets
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
+gem 'coffee-rails'
 
+# Slim template engine
 gem 'slim-rails'
 
+# Background job processing
 gem 'sidekiq'
 
 # Dashstrap
@@ -29,17 +35,13 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
-  gem 'factory_girl_rails', "~> 4.0", :require => false
+  gem 'factory_girl_rails', '~> 4.0', :require => false
   gem 'database_cleaner'
   gem 'email_spec'
-  gem 'cucumber-rails', :require => false
   gem 'puma'
   gem 'pry'
   gem 'pry-byebug'
   gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rbenv', github: "capistrano/rbenv"
-  gem 'capistrano-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
