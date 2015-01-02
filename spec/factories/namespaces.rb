@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :namespace do
-    name "MyString"
+    name 'example_ns'
     user_id 1
   end
 end

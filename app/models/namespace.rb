@@ -13,6 +13,9 @@ class Namespace < Faalis::ORM.proper_base_class
   end
 
   belongs_to :user, :class_name => 'Faalis::User'
-  has_many :sites, :class_name => 'SiteFramework::Site' \
-  if Faalis::ORM.active_record?
+  has_many :sites, :class_name => 'SiteFramework::Site' if Faalis::ORM.active_record?
+
+  validates_presence_of :name
+  validates_uniqueness_of :name
+
 end

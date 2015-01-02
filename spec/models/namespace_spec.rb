@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 describe ::Namespace do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'is not valid without a name' do
+
+  end
 end
