@@ -37,7 +37,7 @@ group :development, :test do
   gem 'capybara'
   gem 'capybara-webkit'
 
-  gem 'factory_girl_rails', '~> 4.0', :require => false
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'puma'
@@ -50,6 +50,8 @@ group :development, :test do
   gem 'ruby_parser'
   gem 'quiet_assets'  # unclutters the server log from assets
   gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec', require: false
 end
 
 # Address of directory containing faalis.gemspec
