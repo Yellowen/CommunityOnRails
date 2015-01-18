@@ -55,8 +55,9 @@ unless Rails.env.production?
   elsif Faalis::ORM.mongoid?
 
     user1 = Faalis::User.create(email: 'user1@user.com',
-                               password: '123123123',
-                               password_confirmation: '123123123')
+                                password: '123123123',
+                                password_confirmation: '123123123')
+
     user2 = Faalis::User.create(email: 'user2@user.com',
                                password: '123123123',
                                password_confirmation: '123123123')
