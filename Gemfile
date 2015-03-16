@@ -37,10 +37,10 @@ group :development, :test do
   gem 'capybara'
   gem 'capybara-webkit'
 
+  gem 'pry-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'email_spec'
-  gem 'puma'
   gem 'pry'
   gem 'pry-byebug'
   gem 'capistrano'
@@ -53,6 +53,9 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'guard-rspec', require: false
   gem 'hirb'
+
+  gem 'coffee-rails-source-maps'
+  gem 'sass-rails-source-maps'
 end
 
 # Address of directory containing faalis.gemspec
@@ -105,3 +108,4 @@ gem 'rails-assets-retinajs'
 gem 'modernizr-rails'
 
 gem 'rest-client'
+gem 'puma'

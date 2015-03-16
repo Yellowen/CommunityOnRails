@@ -21,3 +21,4 @@ doc/*
 **/*/.sass-cache/**/*
 .env
 config/secrets.yml
+public/assets/**/*
