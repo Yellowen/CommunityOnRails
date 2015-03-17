@@ -18,6 +18,7 @@ gem 'slim-rails'
 
 # Background job processing
 gem 'sidekiq'
+gem 'sidetiq'
 
 # Dashstrap
 gem 'jquery-ui-rails'
@@ -103,9 +104,10 @@ gem 'normalize-rails'
 gem 'rails-assets-WOW'
 gem 'rails-assets-jquery-hoverIntent'
 gem 'rails-assets-superfish'
-gem 'rails-assets-jquery-waypoints'
+gem 'rails-assets-jquery-waypoints', '2.0.5'
 gem 'rails-assets-retinajs'
 gem 'modernizr-rails'
 
 gem 'rest-client'
 gem 'puma'
+gem 'foreman'
